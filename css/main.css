@@ -192,6 +192,12 @@ pre.binary {
     height: 32px;
 }
 
+hr {
+    border: 1px dashed #FF8700;
+    border-width: 1px 0 0 0;
+    margin: 1rem 0;
+}
+
 a, p, i, pre, nav {
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
