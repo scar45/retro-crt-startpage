@@ -1,0 +1,50 @@
+// _mixins.scss
+// Contains declarations for reusable (and customizable) parts
+
+@mixin noTransition {
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+@mixin fade($timing) {
+  -webkit-transition: all $timing ease-in-out;
+  -moz-transition: all $timing ease-in-out;
+  transition: all $timing ease-in-out;
+}
+
+@mixin tabFade($timing) {
+  -webkit-animation: tabFade $timing;
+  animation: tabFade $timing;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin changeHeight($timing) {
+  -webkit-transition: height $timing ease-in-out;
+  -moz-transition: height $timing ease-in-out;
+  -o-transition: height $timing ease-in-out;
+  transition: height $timing ease-in-out;
+}
+
+@mixin inverted-drop-shadow($blur, $alpha) {
+  -webkit-box-shadow: 0 -2px $blur rgba(0,0,0,$alpha);
+  -moz-box-shadow: 0 -2px $blur rgba(0,0,0,$alpha);
+  box-shadow: 0 -2px $blur rgba(0,0,0,$alpha);
+}
+
+@mixin timer-bg-shadow($blur, $alpha) {
+  -webkit-box-shadow: inset 0 0 $blur rgba(0,0,0,$alpha);
+  -moz-box-shadow: inset 0 0 $blur rgba(0,0,0,$alpha);
+  box-shadow: inset 0 0 $blur rgba(0,0,0,$alpha);
+}
+
+@mixin stripmp {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

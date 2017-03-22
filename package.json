@@ -1,0 +1,33 @@
+{
+  "name": "retro-crt-startpage",
+  "version": "1.0.0",
+  "description": "Throwback retro CRT style layout for a personalized startpage.",
+  "author": "George Merlocco",
+  "contributors": [
+    "George Merlocco <george@merloc.co>"
+  ],
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scar45/retro-crt-startpage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scar45/retro-crt-startpage/issues",
+    "email": "hello@scar45.me"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-strip-css-comments": "^1.2.0",
+    "run-sequence": "^1.2.2",
+    "vanilla-modal": "^1.6.4"
+  }
+}

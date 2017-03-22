@@ -1,0 +1,42 @@
+// _animations.scss
+// Contains declarations for CSS3 animations.
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes tabFade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes tabFade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
