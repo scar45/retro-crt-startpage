@@ -3,7 +3,7 @@ $ease-out-quint:cubic-bezier(0.230, 1.000, 0.320, 1.000);
 $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
 $screen-background:#121010;
 
-#switch{
+#switch, #flicker{
   display:none;
 }
 .switch-label{
@@ -46,7 +46,6 @@ $screen-background:#121010;
   }
 }
 
-
 @keyframes flicker{
   $steps:20;
   @for $i from 0 through $steps{
@@ -55,6 +54,7 @@ $screen-background:#121010;
     }
   }
 }
+
 .container{
   position:relative;
   overflow:hidden;
@@ -88,20 +88,21 @@ $screen-background:#121010;
     pointer-events:none;
   }
 }
-#switch:checked~.container::after{
+
+#flicker:checked~.container::after{
   animation:flicker 0.15s infinite;
 }
 
 
 @keyframes turn-on{
   0%{
+    transform-origin: center center;
     transform:scale(1,0.8) translate3d(0,0,0);
-    //-webkit-filter:brightness(30);
-    //filter:brightness(30);
     opacity:1;
   }
   3.5%{
     transform:scale(1,0.8) translate3d(0,100%,0);
+	opacity: 0;
   }
 
   3.6%{
@@ -111,44 +112,34 @@ $screen-background:#121010;
 
   9%{
     transform:scale(1.3,0.6) translate3d(0,100%,0);
-    //-webkit-filter:brightness(30);
-    //filter:brightness(30);
     opacity:0;
   }
 
-
-
   11%{
-    transform:scale(1,1) translate3d(0,0,0);
-    //-webkit-filter:contrast(0) brightness(0) ;
-    //filter:contrast(0) brightness(0);
+    transform:scale(1,1.1) translate3d(0,4%,0);
     opacity:0;
   }
 
   100%{
+    animation-timing-function: $ease-out-quint;
     transform:scale(1,1) translate3d(0,0,0);
-    //-webkit-filter:contrast(1) brightness(1.2) saturate(1.3);
-    //filter:contrast(1) brightness(1.2) saturate(1.3);
     opacity:1;
   }
 }
 @keyframes turn-off{
   0%{
+    transform-origin: right 25%;
     transform:scale(1,1.3) translate3d(0,0,0);
-    //-webkit-filter:brightness(1);
-    //filter:brightness(1);
     opacity:1;
   }
   60%{
-    transform:scale(1.3,0.001) translate3d(0,-50%,0);
-    //-webkit-filter:brightness(10);
-    //filter:brightness(10);
+    transform:scale(1.3,0.501) translate3d(0,0,0);
   }
   100%{
-    animation-timing-function:$ease-in-quint;
-    transform:scale(0.000,0.0001) translate3d(0,-100%,0);
-    //-webkit-filter:brightness(50);
-    //filter:brightness(50);
+    animation-timing-function: $ease-in-quint;
+    transform-origin: left 25%;
+    transform:scale(0,0) translate3d(0,0,0);
+    opacity:0;
   }
 }
 .ascii-title{
@@ -157,7 +148,7 @@ $screen-background:#121010;
   border:none;
 }
 #switch~.container>.ascii-title{
-  animation: turn-off 0.85s $ease-out-quint;
+  animation: turn-off 1.25s $ease-out-quint;
   animation-fill-mode:forwards;
 }
 #switch:checked~.container>.ascii-title{
@@ -226,7 +217,6 @@ $screen-background:#121010;
   background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
   -webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
   -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
-
   linear-gradient(180deg, hsl(0, 0%, 45%) 0%,
                   hsl(0, 0%, 48%) 47%,
                   hsl(0, 0%, 47%) 53%,
@@ -242,6 +232,24 @@ $screen-background:#121010;
   background-size: contain;
   bottom: 45px;
   right: 10px;
+}
+
+.flicker-button {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  border: 3px solid #000;
+  background: #040;
+  bottom: 13px;
+  right: 13px;
+  box-shadow: 0 0 0;
+  cursor: pointer;
+}
+
+.flicker-button.on {
+  background: #090;
+  box-shadow: 0 0 10px rgba(0,255,0,0.5);
 }
 
 .switch-wires {

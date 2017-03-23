@@ -57,12 +57,13 @@ h3, h4, h5, h6 {
 }
 
 pre {
-    font-family: mono, Monospace;
+    font-family: VT220, mono, Monospace;
     color: $color-amber;
     background: none;
     border: 0;
     border-radius: 0;
-    font-size: 0.5rem;
+    font-size: 1.4rem;
+	line-height: 1.3rem;
 }
 
 pre:hover {
@@ -177,7 +178,7 @@ input:not(input.btn):focus, select:focus, textarea:focus {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.88);
-    animation:fade_to_black 4s linear;
+    animation:fade_to_black 2s linear;
     animation-fill-mode:forwards;
 }
 
@@ -226,11 +227,6 @@ blockquote {
         padding: 64px;
     }
 
-    pre {
-        font-size: 0.8rem;
-        line-height: 1rem;
-    }
-
     a::before {
         content: "";
         position: absolute;
@@ -266,11 +262,6 @@ blockquote {
 
     .mobile-only {
         display: none;
-    }
-
-    pre {
-        font-size: 1rem;
-        line-height: 1.2rem;
     }
 
     pre.binary {
