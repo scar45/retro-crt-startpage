@@ -379,7 +379,7 @@ $screen-background:#121010;
 }
 .surround.on .button:before {
   background: radial-gradient(ellipse 40px 18px at center -2px, rgba(253, 64, 13, 0.9), rgba(0, 0, 0, 0.6));
-  border-radius: 1;
+  border-radius: 1px;
   border: 2px solid #611501;
   border-top: none;
   width: 68px;
