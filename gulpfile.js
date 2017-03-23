@@ -118,6 +118,7 @@ gulp.task('default', ['liveCoding'], function(){
     gulp.watch(config.paths.css.src, ['css', browserSync.reload]);
     gulp.watch(config.paths.sass.src, ['sass', browserSync.reload]);
     gulp.watch(config.paths.javascript.src, ['scripts', browserSync.reload]);
-    gulp.watch(config.paths.images.src, ['images', browserSync.reload]);
+    gulp.watch(config.paths.images.src, ['untouched', browserSync.reload]);
+    gulp.watch(config.paths.json.src, ['untouched', browserSync.reload]);
     gulp.watch(config.paths.untouched.src, ['untouched', browserSync.reload]);
 });

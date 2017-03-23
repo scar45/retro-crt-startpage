@@ -51,4 +51,9 @@ You'll find everything in ```./build``` again, ready to be served from your pref
 
 ...and that's about it! Thanks!
 
+#### Colophon
+
+* [CSS CRT screen effect - Lucas Bebber](https://codepen.io/lbebber/pen/XJRdrV)
+* [CSS Rocker Switches - Kris Tarling](http://codepen.io/kristarling/pen/WwPovb)
+
 _.end_
