@@ -9,11 +9,6 @@
   display: block;
 }
 
-@viewport {
-  zoom: 1.0;
-  width: extend-to-zoom;
-}
-
 *, html, body {
   box-sizing: border-box;
 }
@@ -28,7 +23,7 @@ body {
   color: $color-amber;
   text-shadow: 0px 1px 4px $color-text-glow;
   font-family: VT220, mono, Monospace;
-  font-size: 1rem;
+  font-size: 20px;
   margin: 0;
 }
 
@@ -87,7 +82,7 @@ hr {
   margin: 1rem 0;
 }
 
-a, p, i, pre, nav {
+a, p, i, pre, nav, input {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   -ms-transition: all 0.2s ease-in;
@@ -117,7 +112,7 @@ a:focus {
   outline-offset: 0;
 }
 
-p, span {
+p, li, span {
   font-family: VT220, mono, Monospace;
   font-size: 20px;
 }
@@ -127,8 +122,11 @@ p i {
   font-size: 1.1rem;
 }
 
+ul {
+	@include stripmp;
+}
+
 input, button, select, textarea {
-  font-family: monospace;
 }
 
 input:not(input.btn), select, textarea {
@@ -141,6 +139,18 @@ input:not(input.btn):focus, select:focus, textarea:focus {
   border-color: #fff !important;
   background: rgba(0, 0, 0, 0.7) !important;
   color: $color-amber-hover !important;
+}
+
+input[type=text] {
+	background: rgba(0,0,0,0.4);
+	border: 1px solid rgba(0,0,0,0.4);
+	width: 100%;
+	padding: 5px 10px;
+}
+
+input[type=text]:focus {
+	background: rgba(0,0,0,0.88);
+	border: 1px solid $color-amber-hover;
 }
 
 ::-moz-selection { /* Code for Firefox */

@@ -1,0 +1,16 @@
+// _filters.scss
+// Contains styling for the tag filters
+
+.tag-list {
+	span {
+		background: rgba(0,0,0,0.45);
+		padding: 2px 7px;
+		margin: 0 5px;
+		cursor: pointer;
+	}
+	
+	.tagsort-active {
+		background: $color-amber;
+		color: $color-black;
+	}
+}

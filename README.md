@@ -54,6 +54,8 @@ You'll find everything in ```./build``` again, ready to be served from your pref
 #### Colophon
 
 * [CSS CRT screen effect - Lucas Bebber](https://codepen.io/lbebber/pen/XJRdrV)
-* [CSS Rocker Switches - Kris Tarling](http://codepen.io/kristarling/pen/WwPovb)
+* [CSS Scanlines - Mehdi](https://codepen.io/meduzen/pen/zxbwRV)
+* [CSS Rocker Switches - Kris Tarling](https://codepen.io/kristarling/pen/WwPovb)
+* [Tagsort - Will Haering](https://github.com/wchaering/tagsort)
 
 _.end_
