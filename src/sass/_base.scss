@@ -73,7 +73,9 @@ pre.binary {
 }
 
 pre.title {
-  margin-bottom: -10px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 0.8;
 }
 
 hr {
@@ -123,7 +125,7 @@ p i {
 }
 
 ul {
-	@include stripmp;
+  @include stripmp;
 }
 
 input, button, select, textarea {
@@ -142,15 +144,21 @@ input:not(input.btn):focus, select:focus, textarea:focus {
 }
 
 input[type=text] {
-	background: rgba(0,0,0,0.4);
-	border: 1px solid rgba(0,0,0,0.4);
-	width: 100%;
-	padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  width: 100%;
+  padding: 5px 10px;
+  color: $color-amber-hover;
 }
 
 input[type=text]:focus {
-	background: rgba(0,0,0,0.88);
-	border: 1px solid $color-amber-hover;
+  background: rgba(0, 0, 0, 0.88);
+  border: 1px solid $color-amber-hover;
+  color: $color-amber;
+}
+
+::-moz-placeholder, ::-webkit-input-placeholder {
+  color: $color-amber;
 }
 
 ::-moz-selection { /* Code for Firefox */
@@ -209,7 +217,7 @@ input[type=text]:focus {
 }
 
 .wrapper {
-  padding: 64px;
+  padding: 20px;
 }
 
 .terminal-content {
@@ -280,7 +288,7 @@ blockquote {
   font-size: 1.1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $bp-tablet) {
 
   body {
     background: url(../images/crt_bg.jpg) no-repeat center fixed #333;
@@ -289,6 +297,12 @@ blockquote {
 
   .wrapper {
     padding: 32px 64px;
+  }
+
+  pre.title {
+    margin-bottom: -10px;
+    font-size: 20px;
+    line-height: 1;
   }
 
   a::before {
@@ -322,7 +336,7 @@ blockquote {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: $bp-tablet-l) {
 
   .desktop-only {
     display: block;

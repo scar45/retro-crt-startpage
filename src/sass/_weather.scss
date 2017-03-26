@@ -2,5 +2,112 @@
 // Contains styling for the simpleWeather plugin
 
 #weather {
-	float: right;
+  p {
+    margin: 20px 0 0;
+  }
+
+  .weather-details {
+    clear: both;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    i {
+      float: left;
+      margin-right: 10px;
+      font-size: 64px;
+    }
+
+    ul {
+      margin: 0;
+      flex-grow: 1;
+
+      li {
+        clear: both;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  ul.weather-current {
+    flex-basis: 45%;
+    max-width: 45%;
+    border-right: 1px dashed $color-amber;
+
+    li:first-child {
+      font-size: 40px;
+
+      i {
+        font-size: 160px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  ul.weather-forecast {
+    flex-basis: 55%;
+    max-width: 55%;
+
+    li {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed $color-amber;
+      position: relative;
+
+      &:last-child {
+        margin-bottom: 0;
+        border-bottom: 0;
+      }
+
+      i {
+        position: absolute;
+        left: 15px;
+      }
+
+      span {
+        display: block;
+        margin-left: 80px;
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-tablet) {
+  #weather {
+    flex-grow: 1;
+    flex-basis: 100%;
+    max-width: 100%;
+
+    ul.weather-current {
+      flex-basis: 240px;
+      max-width: 240px;
+    }
+
+    ul.weather-forecast {
+      flex-basis: auto;
+      max-width: none;
+    }
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  #weather {
+    flex-basis: 50%;
+    max-width: 50%;
+
+    ul.weather-current {
+      flex-basis: 30%;
+      max-width: 30%;
+    }
+
+    ul.weather-forecast {
+      flex-basis: 70%;
+      max-width: 70%;
+    }
+  }
 }

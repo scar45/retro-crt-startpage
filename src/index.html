@@ -38,8 +38,9 @@
 
 <div class="wrapper container scanlines">
     <div class="terminal-content">
-        <!-- Sampling of ANSI/ASCII page titles -- choose your preference, or visit http://patorjk.com/software/taag/ to generate one! -->
-        <pre class="title">      __                   __
+        <header>
+            <div>
+                <pre class="title">      __                   __
      /\ \__               /\ \__
   ___\ \ ,_\    __    _ __\ \ ,_\ _____     __       __      __
  /',__\ \ \/  /'__`\ /\`'__\ \ \//\ '__`\ /'__`\   /'_ `\  /'__`\
@@ -50,16 +51,16 @@
                                      \/_/            \_/__/
 
 </pre>
-		<hr>
-		<form id="searchform" method="get" action="https://www.google.com/search" target="_blank">
-			<input id="searchinput" class="search" placeholder="initiate Google search of the interwebs" name="q" type="text" autocomplete="off" spellcheck="false" />
-		</form>
-		<div id="weather"></div>
+                <form id="searchform" method="get" action="https://www.google.com/search" target="_blank">
+                    <input id="searchinput" class="search" placeholder="initiate google search of the interwebs" name="q" type="text" autocomplete="off" spellcheck="false" />
+                </form>
+            </div>
+            <div id="weather"></div>
+        </header>
         <hr>
 		<div class="tag-list">
 			<label>Tags:</label>
 		</div>
-        <hr>
         <ul class="shortcuts">
             <li class="tagged-item" data-item-tags="tagging,web">
                 <a href="https://scar45.me" target="_blank">

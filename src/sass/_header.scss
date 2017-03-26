@@ -1,7 +1,26 @@
 // _header.scss
 // Contains declarations for the double-blue header element
 
-header {
-  position: relative;
-  border-bottom: 1px solid $color-amber;
+
+
+@media (min-width: 1500px) {
+  header {
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > div {
+      flex-grow: 1;
+      flex-basis: 50%;
+      max-width: 50%;
+
+      input[type=text] {
+        width: 93%;
+        margin-top: 27px;
+      }
+    }
+  }
 }
