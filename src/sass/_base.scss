@@ -246,11 +246,9 @@ ul.shortcuts {
 
   span.tags {
     span {
-      background: $color-grey-dark;
-      color: $color-amber;
-      display: inline-block;
-      margin-right: 5px;
-      padding: 0 3px;
+      background: rgba(0,0,0,0.45);
+      padding: 2px 7px;
+      margin: 7px 5px 0 0;
     }
     &:last-child {
       margin-right: 0;
@@ -304,8 +302,12 @@ blockquote {
     font-size: 20px;
     line-height: 1;
   }
+  a.bookmark span.link-name {
+    display: inline-block;
+    position: relative;
+  }
 
-  a::before {
+  a:not(.bookmark)::before, a.bookmark span.link-name::before {
     content: "";
     position: absolute;
     right: 0px;
@@ -318,7 +320,7 @@ blockquote {
     transition: all 0.2s ease 0s;
   }
 
-  a:focus::before, a:hover::before {
+  a:focus::before, a:hover::before, a.bookmark:hover span.link-name::before {
     opacity: 0.75;
     transform: scaleX(1);
   }

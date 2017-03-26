@@ -32,6 +32,36 @@ $(".flicker-button").click(function () {
     }
 });
 
+function loadJSON() {
+    console.log("Loading JSON object of startpage links...")
+    $.getJSON('links.json', function(links) {
+        $.each(links.link, function(i,data){
+            $(".shortcuts").append('' +
+                '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
+                '<a class="bookmark" href="'+data.url+'" target="_blank">' +
+                '<img class="retro" src="images/'+data.icon+'"/>' +
+                '<span class="link-name">'+data.name+'</span>' +
+                '<br>' +
+                '<span class="tags link-"'+i+'>' +
+                '</span>' +
+                '<br>' +
+                '<span>https://scar45.me/with/a/decently/long/URL/for/testing/purposes</span>' +
+                '</a></li>'
+            );
+            $.each(data.tags, function(j,tag){
+                console.log(tag);
+                $(".link-").eq(i).append('<span>'+tag+'</span>');
+            });
+        });
+    }).done(function(){
+        $('div.tag-list').tagSort({
+            items: 'li.tagged-item',
+            reset: '.tagsort-reset',
+            fadeTime: 420
+        });
+    });
+}
+
 // Weather support via simpleWeather v3.1.0 - http://simpleweatherjs.com
 // Replace 'Toronto' with your city name
 function initLocation() {
@@ -69,14 +99,9 @@ function loadWeather(location, woeid) {
         }
     });
 }
-
 $(document).ready(function () {
     initLocation();
+    loadJSON();
+
     setInterval(initLocation, 600000); // Update the weather every 10 minutes.
-
-    $('div.tag-list').tagSort({
-        items: 'li.tagged-item',
-        fadeTime: 420
-    });
-
 });

@@ -17,8 +17,8 @@ var config = {
             dest: "build"
         },
         json: {
-            src:  "src/json/*.json",
-            dest: "build/json"
+            src:  "src/**/*.json",
+            dest: "build"
         },
         javascript: {
             src:  "src/js/**/*.js",
