@@ -2,11 +2,14 @@
 // Contains styling for the tag filters
 
 .tag-list {
+	line-height: 28px;
+
 	span {
 		background: rgba(0,0,0,0.45);
-		padding: 2px 7px;
-		margin: 0 5px;
+		padding: 0 7px;
+		margin: 0 5px 5px;
 		cursor: pointer;
+		display: inline-block;
 	}
 	
 	.tagsort-active {

@@ -64,12 +64,18 @@
       i {
         position: absolute;
         left: 15px;
+        top: 10px;
       }
 
       span {
         display: block;
         margin-left: 80px;
       }
+
+      &:first-child i {
+        top: 0px;
+      }
+
       &:last-child {
         padding-bottom: 0;
       }
@@ -86,11 +92,29 @@
     ul.weather-current {
       flex-basis: 240px;
       max-width: 240px;
+
+      li:first-child {
+        i {
+          font-size: 80px;
+          margin-bottom: 20px;
+        }
+      }
     }
 
     ul.weather-forecast {
       flex-basis: auto;
       max-width: none;
+
+      li {
+        display: inline-block;
+        width: 32%;
+        border-right: 1px dashed $color-amber;
+
+        &:last-child {
+          padding-bottom: 10px;
+          border-bottom: 1px dashed $color-amber;
+        }
+      }
     }
   }
 }
@@ -101,13 +125,37 @@
     max-width: 50%;
 
     ul.weather-current {
-      flex-basis: 30%;
-      max-width: 30%;
+      flex-basis: 37%;
+      max-width: 37%;
+
+      li:first-child {
+        font-size: 40px;
+
+        i {
+          font-size: 160px;
+          margin-bottom: 20px;
+        }
+      }
     }
 
     ul.weather-forecast {
-      flex-basis: 70%;
-      max-width: 70%;
+      flex-basis: 63%;
+      max-width: 63%;
+
+      li {
+        display: block;
+        width: auto;
+        border-right: 0;
+
+        &:last-child {
+          padding-bottom: 10px;
+          border-bottom: 1px dashed $color-amber;
+        }
+
+        &:first-child {
+          padding-right: 40%;
+        }
+      }
     }
   }
 }

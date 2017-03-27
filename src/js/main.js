@@ -32,22 +32,36 @@ $(".flicker-button").click(function () {
     }
 });
 
+function sortAlpha(a,b){
+    return a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase() ? 1 : -1;
+};
+
 function loadJSON() {
     console.log("Loading JSON object of startpage links...")
     $.getJSON('links.json', function(links) {
+        $(".shortcuts").html("");
         $.each(links.link, function(i,data){
-            $(".shortcuts").append('' +
-                '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
-                '<a class="bookmark" href="'+data.url+'" target="_blank">' +
-                '<img class="retro" src="images/'+data.icon+'"/>' +
-                '<span class="link-name">'+data.name+'</span>' +
-                '<br>' +
-                '<span class="tags link-"'+i+'>' +
-                '</span>' +
-                '<br>' +
-                '<span>https://scar45.me/with/a/decently/long/URL/for/testing/purposes</span>' +
-                '</a></li>'
-            );
+            if (data.invert == true) {
+                $(".shortcuts").append('' +
+                    '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
+                    '<a class="bookmark" href="'+data.url+'" target="_blank">' +
+                    '<img class="retro invert" src="images/'+data.icon+'"/>' +
+                    '<span class="link-name">'+data.name+'</span>' +
+                    '<br><span class="link-url">'+data.url+'</span>' +
+                    '<br><span class="tags link-"'+i+'></span><br>' +
+                    '</a></li>'
+                );
+            } else {
+                $(".shortcuts").append('' +
+                    '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
+                    '<a class="bookmark" href="'+data.url+'" target="_blank">' +
+                    '<img class="retro" src="images/'+data.icon+'"/>' +
+                    '<span class="link-name">'+data.name+'</span>' +
+                    '<br><span class="link-url">'+data.url+'</span>' +
+                    '<br><span class="tags link-"'+i+'></span><br>' +
+                    '</a></li>'
+                );
+            }
             $.each(data.tags, function(j,tag){
                 console.log(tag);
                 $(".link-").eq(i).append('<span>'+tag+'</span>');
@@ -59,6 +73,7 @@ function loadJSON() {
             reset: '.tagsort-reset',
             fadeTime: 420
         });
+        $('div.tag-list span:not(.tagsort-reset)').sort(sortAlpha).appendTo('div.tag-list');
     });
 }
 
@@ -89,7 +104,7 @@ function loadWeather(location, woeid) {
             html += '<li class="currently">' + weather.currently + '</li>';
             html += '<li>H:' + weather.high + '&deg;C // L:' + weather.low + '&deg;C</li>';
             html += '<li>' + weather.city + ', ' + weather.region + '</li></ul>';
-            html += '<ul class="weather-forecast"><li><i class="icon-weather icon-' + weather.forecast[1].code + '"></i><span>' + weather.forecast[1].day + ':' + weather.forecast[1].text + '<br>H:' + weather.forecast[1].high + '&deg;C // L:' + weather.forecast[1].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[2].code + '"></i><span>' + weather.forecast[2].day + ':' + weather.forecast[2].text + '<br>H:' + weather.forecast[2].high + '&deg;C // L:' + weather.forecast[2].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[3].code + '"></i><span>' + weather.forecast[3].day + ':' + weather.forecast[3].text + '<br>H:' + weather.forecast[3].high + '&deg;C // L:' + weather.forecast[3].low + '&deg;C</span></li></ul></div>';
+            html += '<ul class="weather-forecast"><li><i class="icon-weather icon-' + weather.forecast[1].code + '"></i><span>' + weather.forecast[1].day + ': ' + weather.forecast[1].text + '<br>H: ' + weather.forecast[1].high + '&deg;C // L: ' + weather.forecast[1].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[2].code + '"></i><span>' + weather.forecast[2].day + ': ' + weather.forecast[2].text + '<br>H: ' + weather.forecast[2].high + '&deg;C // L: ' + weather.forecast[2].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[3].code + '"></i><span>' + weather.forecast[3].day + ': ' + weather.forecast[3].text + '<br>H: ' + weather.forecast[3].high + '&deg;C // L: ' + weather.forecast[3].low + '&deg;C</span></li></ul></div>';
             html += '<p><span id="clock"></span> // Weather updated ' + moment(timestamp).fromNow() + '</p>';
             $("#weather").html(html);
             setInterval(update, 1000);
@@ -99,9 +114,21 @@ function loadWeather(location, woeid) {
         }
     });
 }
-$(document).ready(function () {
-    initLocation();
-    loadJSON();
 
+function randomgen() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@^$_@`";
+
+    for( var i=0; i < 1024; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    $(".random").text(text);
+}
+
+$(document).ready(function () {
+    initLocation(); // Request location for weather via the browser
+    loadJSON(); // Read the user's links collection
+    randomgen(); // Add 1KB to the page for that A E S T H E T I C look
+    setInterval(randomgen, 300000); // Regenerate the fake encrypted string in footer every 5 minutes because why not?
     setInterval(initLocation, 600000); // Update the weather every 10 minutes.
 });

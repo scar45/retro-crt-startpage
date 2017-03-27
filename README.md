@@ -17,6 +17,8 @@ This repository contains an HTML5-based layout for creating a personalized start
 ```
 npm install
 ```
+...then rename ```links.dist.json``` to ```links.json```, and customize it to your heart's content.
+
 ### Developing
 
 **Start a first build, then spawn webserver for live coding (browser-sync):**

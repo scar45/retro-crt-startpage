@@ -14,6 +14,7 @@ $color-red: #FF0000;
 $color-green: #00FF00;
 $color-amber: #FFAF65;
 $color-amber-hover: #FF8700;
+$color-amber-dark: #c15b00;
 $color-text-glow: rgba(255, 175, 101, 0.45);
 
 // Breakpoints
@@ -21,3 +22,5 @@ $color-text-glow: rgba(255, 175, 101, 0.45);
 $bp-tablet: 768px;
 $bp-tablet-l: 992px;
 $bp-desktop: 1500px;
+$bp-desktop-l: 1920px;
+$bp-desktop-uw: 3000px;
