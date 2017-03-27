@@ -1,0 +1,104 @@
+{
+  "link": [
+    {
+      "name": "Wallabag",
+      "url": "https://wallabag.org/en",
+      "icon": "icon-wallabag.png",
+      "invert": true,
+      "tags": [
+        "bookmarks",
+        "links"
+      ]
+    },
+    {
+      "name": "Files",
+      "url": "https://larsjung.de/h5ai/",
+      "icon": "icon-files.png",
+      "invert": false,
+      "tags": [
+        "files",
+        "sharing"
+      ]
+    },
+    {
+      "name": "Gitea",
+      "url": "https://gitea.io",
+      "icon": "icon-git.png",
+      "invert": false,
+      "tags": [
+        "git",
+        "versioning"
+      ]
+    },
+    {
+      "name": "Webmail",
+      "url": "https://gmail.com",
+      "icon": "icon-mail.png",
+      "invert": false,
+      "tags": [
+        "messaging",
+        "calendar"
+      ]
+    },
+    {
+      "name": "NextCloud",
+      "url": "https://nextcloud.com",
+      "icon": "icon-nextcloud.svg",
+      "invert": false,
+      "tags": [
+        "private sharing",
+        "intranet"
+      ]
+    },
+    {
+      "name": "OwnCloud",
+      "url": "https://owncloud.org",
+      "icon": "icon-owncloud.png",
+      "invert": false,
+      "tags": [
+        "private sharing",
+        "intranet"
+      ]
+    },
+    {
+      "name": "Pastebin",
+      "url": "https://modernpaste.com",
+      "icon": "icon-pastebin.png",
+      "invert": false,
+      "tags": [
+        "text"
+      ]
+    },
+    {
+      "name": "Riot",
+      "url": "https://riot.im",
+      "icon": "icon-riot-2.svg",
+      "invert": false,
+      "tags": [
+        "encrypted",
+        "chat",
+        "messaging"
+      ]
+    },
+    {
+      "name": "FreshRSS",
+      "url": "https://freshrss.org",
+      "icon": "icon-rss.png",
+      "invert": true,
+      "tags": [
+        "news",
+        "feed"
+      ]
+    },
+    {
+      "name": "Syncthing",
+      "url": "https://syncthing.net/",
+      "icon": "icon-syncthing.png",
+      "invert": false,
+      "tags": [
+        "files",
+        "encrypted"
+      ]
+    }
+  ]
+}
