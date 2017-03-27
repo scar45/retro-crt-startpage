@@ -59,6 +59,7 @@ pre {
   border-radius: 0;
   font-size: 1.45rem;
   line-height: 1.3rem;
+  overflow: visible;
 }
 
 pre:hover {
@@ -218,6 +219,7 @@ input[type=text]:focus {
 
 .wrapper {
   padding: 20px;
+  height: 100%;
 }
 
 .terminal-content {
@@ -300,6 +302,7 @@ ul.shortcuts {
   white-space: pre-wrap;
   word-wrap: break-word;
   cursor: not-allowed;
+  line-height: 1;
 }
 
 blockquote {
