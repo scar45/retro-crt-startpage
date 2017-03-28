@@ -97,6 +97,15 @@ body.green {
     .retro.invert {
       -webkit-filter: invert(1) sepia(1) saturate(30) hue-rotate(50deg);
     }
+    
+    a:hover .retro {
+      -webkit-filter: none;
+    }
+
+    a:hover .retro.invert {
+      -webkit-filter: invert(1);
+    }
+
   }
 
   blockquote {
