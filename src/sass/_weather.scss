@@ -56,28 +56,25 @@
       border-bottom: 1px dashed $color-amber;
       position: relative;
 
+      &:first-child i {
+        top: 10px;
+      }
+
       &:last-child {
         margin-bottom: 0;
+        padding-bottom: 0;
         border-bottom: 0;
       }
 
       i {
         position: absolute;
         left: 15px;
-        top: 10px;
+        top: 0;
       }
 
       span {
         display: block;
         margin-left: 80px;
-      }
-
-      &:first-child i {
-        top: 0px;
-      }
-
-      &:last-child {
-        padding-bottom: 0;
       }
     }
   }
