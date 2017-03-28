@@ -19,7 +19,7 @@ html, body {
 }
 
 body {
-  background: url(../images/crt_amber_bg.jpg) no-repeat center fixed $color-grey-dark;
+  background: rgba(0, 0, 0, 0.88);
   color: $color-amber;
   text-shadow: 0px 1px 4px $color-amber-text-glow;
   font-family: VT220, mono, Monospace;
