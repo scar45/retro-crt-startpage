@@ -227,7 +227,7 @@ ul.shortcuts {
       background: rgba(0,0,0,0.45);
       border: 1px dashed rgba(0,0,0,0);
       padding: 2px 7px;
-      margin: 7px 5px 0 0;
+      margin: 2px 5px 0 0;
     }
     &:last-child {
       margin-right: 0;
@@ -249,8 +249,8 @@ ul.shortcuts {
 
   .retro {
     -webkit-filter: sepia(1) saturate(20) hue-rotate(349deg);
-    height: 64px;
-    width: 64px;
+    height: 80px;
+    width: 80px;
     -webkit-transition: all 0.42s;
     -moz-transition: all 0.42s;
     transition: all 0.42s;

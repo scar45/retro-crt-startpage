@@ -57,7 +57,7 @@ function loadJSON() {
                     '<img class="retro invert" src="images/'+data.icon+'"/>' +
                     '<span class="link-name">'+data.name+'</span>' +
                     '<br><span class="link-url">'+data.url+'</span>' +
-                    '<br><span class="tags link-"'+i+'></span><br>' +
+                    '<br><span class="tags"></span><br>' +
                     '</a></li>'
                 );
             } else {
@@ -67,13 +67,13 @@ function loadJSON() {
                     '<img class="retro" src="images/'+data.icon+'"/>' +
                     '<span class="link-name">'+data.name+'</span>' +
                     '<br><span class="link-url">'+data.url+'</span>' +
-                    '<br><span class="tags link-"'+i+'></span><br>' +
+                    '<br><span class="tags"></span><br>' +
                     '</a></li>'
                 );
             }
-            $.each(data.tags, function(j,tag){
+            $.each(data.tags, function(t,tag){
                 //console.log(tag);
-                $(".link-").eq(i).append('<span>'+tag+'</span>');
+                $(".tags").eq(i).append('<span>'+tag+'</span>');
             });
         });
     }).done(function(){
