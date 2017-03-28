@@ -1,6 +1,45 @@
 // _animations.scss
 // Contains declarations for CSS3 animations.
 
+@keyframes amber_fade_from_black{
+  0%{
+    background: rgba(0,0,0,1);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  100%{
+    background: rgba(0,0,0,0);
+    -webkit-box-shadow: inset 0 0 100px 50px $color-amber-crt-glow;
+    -moz-box-shadow: inset 0 0 100px 50px $color-amber-crt-glow;
+    box-shadow: inset 0 0 100px 50px $color-amber-crt-glow;
+  }
+}
+
+@keyframes green_fade_from_black{
+  0%{
+    background: rgba(0,0,0,1);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  100%{
+    background: rgba(0,0,0,0);
+    -webkit-box-shadow: inset 0 0 100px 50px $color-green-crt-glow;
+    -moz-box-shadow: inset 0 0 100px 50px $color-green-crt-glow;
+    box-shadow: inset 0 0 100px 50px $color-green-crt-glow;
+  }
+}
+
+@keyframes fade_to_black {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 1);
+  }
+}
+
 @keyframes pulse {
   0% {
     -webkit-transform: scale(1);

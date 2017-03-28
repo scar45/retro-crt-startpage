@@ -1,7 +1,5 @@
 // _header.scss
-// Contains declarations for the double-blue header element
-
-
+// Contains declarations for the title, search, and weather widgets
 
 @media (min-width: 1500px) {
   header {
@@ -19,7 +17,7 @@
 
       input[type=text] {
         width: 93%;
-        margin-top: 27px;
+        margin-top: 35px;
       }
     }
   }

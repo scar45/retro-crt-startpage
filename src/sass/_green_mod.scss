@@ -1,0 +1,184 @@
+// green_mod.scss
+// Alternate stylesheet for a green CRT version
+
+body.green {
+  background: url(../images/crt_green_bg.jpg) no-repeat center fixed $color-grey-dark;
+  color: $color-green;
+  text-shadow: 0px 1px 4px $color-green-text-glow;
+
+  .crt-frame-amber {
+    display: none;
+  }
+
+  pre {
+    font-family: VT220, mono, Monospace;
+    color: $color-green;
+
+    &:hover {
+      color: $color-green-hover;
+    }
+  }
+
+  hr {
+    border: 1px dashed $color-green-hover;
+  }
+
+  a {
+    color: $color-green;
+  }
+
+  a:hover {
+    color: $color-green-hover;
+  }
+
+  a:focus, a:active {
+    color: $color-green;
+  }
+
+  input:not(input.btn), select, textarea {
+    border-color: $color-green !important;
+  }
+
+  input:not(input.btn):focus, select:focus, textarea:focus {
+    color: $color-green-hover !important;
+  }
+
+  input[type=text] {
+    border: 1px dashed $color-green-hover;
+    border-width: 1px 0;
+    color: $color-green-hover;
+  }
+
+  input[type=text]:focus {
+    color: $color-green;
+    border-bottom: 1px solid $color-green-hover;
+  }
+
+  ::-moz-placeholder, ::-webkit-input-placeholder {
+    color: $color-green;
+  }
+
+  ::-moz-selection { /* Code for Firefox */
+    background: $color-green-hover;
+  }
+
+  ::selection {
+    background: $color-green-hover;
+  }
+
+  #switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
+    display: none;
+    animation:green_fade_from_black 2s linear;
+    animation-fill-mode:forwards;
+  }
+
+  #switch:checked~.crt-frame-green {
+    display: block;
+  }
+
+  .theme-button {
+    background: $color-green-dark;
+    box-shadow: 0 0 10px $color-green-btn-theme-glow;
+  }
+
+  ul.shortcuts {
+    span.link-url {
+      color: $color-green-dark;
+    }
+
+    a:hover span.link-url {
+      color: $color-green;
+    }
+
+    .retro {
+      -webkit-filter: sepia(1) saturate(30) hue-rotate(70deg);
+    }
+
+    .retro.invert {
+      -webkit-filter: invert(1) sepia(1) saturate(30) hue-rotate(50deg);
+    }
+  }
+
+  blockquote {
+    border-left: 2px dashed $color-green;
+  }
+
+  .tag-list {
+    span {
+      &:hover {
+        border-color: $color-green-hover;
+      }
+
+      &:active {
+        border-color: $color-green;
+      }
+    }
+
+    .tagsort-active {
+      background: $color-green;
+    }
+  }
+
+  .modal-content {
+    h2, h3 {
+      color: $color-green;
+    }
+  }
+
+  i.icon-weather {
+    color: $color-green;
+  }
+
+  #weather {
+    ul.weather-current {
+      border-right: 1px dashed $color-green;
+    }
+
+    ul.weather-forecast {
+      li {
+        border-bottom: 1px dashed $color-green;
+      }
+    }
+  }
+
+  @media (min-width: $bp-tablet) {
+
+    .crt-frame-green {
+      display: block
+    }
+
+    a:not(.bookmark)::before, a.bookmark span.link-name::before {
+      background: $color-green-hover;
+    }
+
+    a:focus::before {
+      background: $color-green-hover;
+    }
+
+    #weather {
+      ul.weather-forecast {
+        li {
+          border-right: 1px dashed $color-green;
+
+          &:last-child {
+            border-bottom: 1px dashed $color-green;
+          }
+        }
+      }
+    }
+
+  }
+
+  @media (min-width: $bp-desktop) {
+    #weather {
+      ul.weather-forecast {
+        li {
+          &:last-child {
+            border-bottom: 1px dashed $color-green;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -4,7 +4,7 @@
 $ease-out-quint:cubic-bezier(0.230, 1.000, 0.320, 1.000);
 $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
 
-#switch, #flicker{
+#switch, #flicker, #alttheme{
   display:none;
 }
 .switch-label{
@@ -62,13 +62,14 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
   animation-fill-mode:forwards;
 }
 
-#switch:checked~#crt {
-  animation:fade_from_black 2s linear;
+#switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
+  display: none;
+  animation:amber_fade_from_black 2s linear;
   animation-fill-mode:forwards;
 }
 
-#flicker:checked~.container::after{
-//  animation:flicker 0.15s infinite;
+#switch:checked~.crt-frame-amber {
+  display: block;
 }
 
 .switch-mount {
@@ -96,24 +97,25 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
   background-size: contain;
   bottom: 45px;
   right: 10px;
+  cursor: pointer;
 }
 
-.flicker-button {
+.btn-scanlines {
+  background: url(../images/power-mark-scanlines.png) no-repeat;
+  background-size: contain;
+}
+
+.theme-button {
   position: absolute;
   height: 20px;
   width: 20px;
   border-radius: 10px;
   border: 3px solid #000;
-  background: #040;
+  background: $color-amber-dark;
+  box-shadow: 0 0 10px $color-amber-btn-theme-glow;
   bottom: 13px;
   right: 13px;
-  box-shadow: 0 0 0;
   cursor: pointer;
-}
-
-.flicker-button.on {
-  background: #090;
-  box-shadow: 0 0 10px rgba(0,255,0,0.5);
 }
 
 .switch-wires {
@@ -207,7 +209,7 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
   z-index: 30;
   position: absolute;
   top: 25px;
-  left: -7px;
+  left: -10px;
 }
 .button-face:before {
   background: linear-gradient(rgba(216, 50, 50, 0.37) 30%, rgba(135, 0, 0, 0.53));
@@ -232,8 +234,7 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
 }
 
 .surround.on {
-  background: radial-gradient(ellipse 85px 125px, rgba(53, 0, 19, 0.54), #111111);
-  background-image: -webkit-gradient(radial, center center, 0, center center, 125, color-stop(0, rgba(97, 29, 2, 0.68)), color-stop(100, #111));
+  background: radial-gradient(ellipse 85px 125px, rgba(255, 113, 33, 0.5), #111);
 }
 .surround.on:after {
   height: 170px;

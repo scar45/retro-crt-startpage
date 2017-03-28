@@ -11,7 +11,7 @@ $scan-crt: true;
 $scan-fps: 60;
 
 // scanline-color (rgba)
-$scan-color: rgba(#000, .33);
+$scan-color: rgba(#000, .35);
 
 // set z-index on 8, like in ♥ 8-bits ♥, or…
 // set z-index on 2147483648 or more to enable scanlines on Chrome fullscreen (doesn't work in Firefox or IE);
@@ -46,8 +46,6 @@ $scan-opacity: 1;
 /* CSS .scanlines CLASS */
 
 .scanlines {
-	position: relative;
-	overflow: hidden; // only to animate the unique scanline
 
 	&:before,
 	&:after {

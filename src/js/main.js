@@ -4,30 +4,39 @@ $(".surround").click(function (e) {
         // Shut off the CRT monitor
         $("#switch").prop("checked", false);
         $(e.currentTarget).removeClass("on");
-        $(".flicker-button").removeClass("on");
-        $(".container").removeClass("scanlines");
+        $(".crt-effects").removeClass("scanlines");
     } else {
         // Turn on the CRT monitor and enable scanlines if the flicker checkbox is enabled
         if ($("#flicker").is(":checked")) {
-            $(".flicker-button").addClass("on");
-            $(".container").addClass("scanlines");
+            $(".crt-effects").addClass("scanlines");
         }
         $(e.currentTarget).addClass("on");
         $("#switch").prop("checked", true);
     }
 });
 
+// Helper for toggling CRT color theme
+$(".theme-button").click(function () {
+   if ($("#alttheme").is(":checked")) {
+        $("#alttheme").prop("checked", false);
+        $("body").removeClass("green")
+    } else {
+        $("#alttheme").prop("checked", true);
+        $("body").addClass("green")
+    }
+});
+
 // Helper for toggling CRT screen flickering effect
-$(".flicker-button").click(function () {
+$(".power-label").click(function () {
     if ($("#flicker").is(":checked") && $("#switch-wrap").hasClass("on")) {
         $("#flicker").prop("checked", false);
-        $(".flicker-button").removeClass("on");
-        $(".container").removeClass("scanlines");
+        $(".crt-effects").removeClass("scanlines");
+        $(".power-label").removeClass("btn-scanlines");
     } else {
         if ($("#switch").is(":checked")) {
             $("#flicker").prop("checked", true);
-            $(".flicker-button").addClass("on");
-            $(".container").addClass("scanlines");
+            $(".crt-effects").addClass("scanlines");
+            $(".power-label").addClass("btn-scanlines");
         }
     }
 });
@@ -37,7 +46,7 @@ function sortAlpha(a,b){
 };
 
 function loadJSON() {
-    console.log("Loading JSON object of startpage links...")
+    //console.log("Loading JSON object of startpage links...")
     $.getJSON('links.json', function(links) {
         $(".shortcuts").html("");
         $.each(links.link, function(i,data){
@@ -63,7 +72,7 @@ function loadJSON() {
                 );
             }
             $.each(data.tags, function(j,tag){
-                console.log(tag);
+                //console.log(tag);
                 $(".link-").eq(i).append('<span>'+tag+'</span>');
             });
         });
@@ -80,11 +89,30 @@ function loadJSON() {
 // Weather support via simpleWeather v3.1.0 - http://simpleweatherjs.com
 // Replace 'Toronto' with your city name
 function initLocation() {
-    console.log("Getting weather info...");
+    //console.log("Getting weather info...");
     if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            loadWeather(position.coords.latitude + ',' + position.coords.longitude);
-        });
+        var options = {
+            enableHighAccuracy: false,
+            timeout: 5000,
+            maximumAge: 0
+        };
+
+        function success(pos) {
+            var crd = pos.coords;
+
+            console.log('Your current position is:');
+            console.log('Latitude : ' + crd.latitude);
+            console.log('Longitude: ' + crd.longitude);
+            console.log('More or less ' + crd.accuracy + ' meters.');
+
+            loadWeather(pos.coords.latitude + ',' + pos.coords.longitude);
+        };
+
+        function error(err) {
+            console.warn('ERROR(' + err.code + '): ' + err.message);
+        };
+
+        navigator.geolocation.getCurrentPosition(success, error, options);
     } else {
         loadWeather('Toronto', ''); //@params location, woeid
     }
@@ -107,6 +135,7 @@ function loadWeather(location, woeid) {
             html += '<ul class="weather-forecast"><li><i class="icon-weather icon-' + weather.forecast[1].code + '"></i><span>' + weather.forecast[1].day + ': ' + weather.forecast[1].text + '<br>H: ' + weather.forecast[1].high + '&deg;C // L: ' + weather.forecast[1].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[2].code + '"></i><span>' + weather.forecast[2].day + ': ' + weather.forecast[2].text + '<br>H: ' + weather.forecast[2].high + '&deg;C // L: ' + weather.forecast[2].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[3].code + '"></i><span>' + weather.forecast[3].day + ': ' + weather.forecast[3].text + '<br>H: ' + weather.forecast[3].high + '&deg;C // L: ' + weather.forecast[3].low + '&deg;C</span></li></ul></div>';
             html += '<p><span id="clock"></span> // Weather updated ' + moment(timestamp).fromNow() + '</p>';
             $("#weather").html(html);
+            console.log(html);
             setInterval(update, 1000);
         },
         error: function (error) {
@@ -116,13 +145,14 @@ function loadWeather(location, woeid) {
 }
 
 function randomgen() {
+    // Totally pointless, yet somewhat stylish extra 1KB of randomly generated pseudo-encryption bloat
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@^$_@`";
 
     for( var i=0; i < 1024; i++ )
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-    $(".random").text(text);
+    $(".random").text(text+"^^EXTRA1KBPAGELOADWHYNOT?");
 }
 
 $(document).ready(function () {

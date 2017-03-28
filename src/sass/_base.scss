@@ -19,9 +19,9 @@ html, body {
 }
 
 body {
-  background: url(../images/crt_bg.jpg) no-repeat center fixed $color-grey-dark;
+  background: url(../images/crt_amber_bg.jpg) no-repeat center fixed $color-grey-dark;
   color: $color-amber;
-  text-shadow: 0px 1px 4px $color-text-glow;
+  text-shadow: 0px 1px 4px $color-amber-text-glow;
   font-family: VT220, mono, Monospace;
   font-size: 20px;
   margin: 0;
@@ -60,11 +60,12 @@ pre {
   font-size: 1.45rem;
   line-height: 1.3rem;
   overflow: visible;
+
+  &:hover {
+    color: $color-amber-hover;
+  }
 }
 
-pre:hover {
-  color: $color-amber-hover;
-}
 
 pre.binary {
   display: none;
@@ -77,6 +78,7 @@ pre.title {
   margin: 0;
   font-size: 12px;
   line-height: 0.8;
+  cursor: no-drop;
 }
 
 hr {
@@ -108,7 +110,7 @@ a:hover {
 }
 
 a:focus, a:active {
-  color: $color-green;
+  color: $color-amber;
 }
 
 a:focus {
@@ -139,22 +141,24 @@ input:not(input.btn), select, textarea {
 }
 
 input:not(input.btn):focus, select:focus, textarea:focus {
-  border-color: #fff !important;
+  border-color: $color-white !important;
   background: rgba(0, 0, 0, 0.7) !important;
   color: $color-amber-hover !important;
 }
 
 input[type=text] {
   background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 1px dashed $color-amber-hover;
+  border-width: 1px 0;
   width: 100%;
-  padding: 5px 10px;
+  padding: 10px;
+  margin: 1rem 0 0;
   color: $color-amber-hover;
 }
 
 input[type=text]:focus {
   background: rgba(0, 0, 0, 0.88);
-  border: 1px solid $color-amber-hover;
+  border-bottom-style: solid;
   color: $color-amber;
 }
 
@@ -184,42 +188,12 @@ input[type=text]:focus {
   text-align: center;
 }
 
-.text-domain {
-  color: #77d42a;
-}
-
 .text-muted {
-  color: #ccc;
-}
-
-@keyframes fade_to_black {
-  0% {
-    background: rgba(0, 0, 0, 0);
-  }
-  100% {
-    background: rgba(0, 0, 0, 1);
-  }
-}
-
-#crt {
-  display: none;
-  pointer-events: none;
-  z-index: 9000;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.88);
-  animation: fade_to_black 2s linear;
-  animation-fill-mode: forwards;
+  color: $color-grey-lighter;
 }
 
 .wrapper {
   padding: 20px;
-  height: 100%;
 }
 
 .terminal-content {
@@ -251,6 +225,7 @@ ul.shortcuts {
   span.tags {
     span {
       background: rgba(0,0,0,0.45);
+      border: 1px dashed rgba(0,0,0,0);
       padding: 2px 7px;
       margin: 7px 5px 0 0;
     }
@@ -313,7 +288,7 @@ blockquote {
 @media (min-width: $bp-tablet) {
 
   body {
-    background: url(../images/crt_bg.jpg) no-repeat center fixed #333;
+    background: url(../images/crt_amber_bg.jpg) no-repeat center fixed #333;
     background-size: cover;
   }
 
@@ -366,16 +341,17 @@ blockquote {
   }
 
   a:focus::before {
-    background: $color-green;
+    background: $color-amber-hover;
   }
 
   a.btn::before, a.label::before, .pagination > li > a::before, #order-standard_cart .view-cart-tabs .nav-tabs > li > a::before {
     display: none;
   }
 
-  #crt {
+  .crt-frame-amber {
     display: block;
   }
+
 }
 
 @media (min-width: $bp-tablet-l) {
@@ -392,35 +368,30 @@ blockquote {
     display: block;
   }
 
-  .navbar-main {
-    background: rgba(255, 135, 0, 0.3);
-  }
+}
 
-  .navbar-main:hover {
-    background: $color-amber-hover;
-  }
+@media (min-width: $bp-desktop) {
 
-  .navbar-main .navbar-nav > li > a {
-    color: $color-amber;
+  ul.shortcuts {
+    li {
+      margin: 2rem 3% 0 0;
+      flex-basis: 30%;
+      max-width: 30%;
+    }
   }
 
 }
 
 @media (min-width: $bp-desktop-l) {
+
   .wrapper {
     padding: 32px 90px;
   }
 
-  ul.shortcuts {
-    li {
-      margin: 2rem 3% 0 0;
-      flex-basis: 29%;
-      max-width: 29%;
-    }
-  }
 }
 
 @media (min-width: $bp-desktop-uw) {
+
   .wrapper {
     padding: 32px 110px;
   }
@@ -432,4 +403,5 @@ blockquote {
       max-width: 22%;
     }
   }
+
 }

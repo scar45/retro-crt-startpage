@@ -3,13 +3,26 @@
 
 .tag-list {
 	line-height: 28px;
+	margin-top: 2rem;
 
 	span {
 		background: rgba(0,0,0,0.45);
+		border: 1px dashed rgba(0,0,0,0);
+		border-width: 1px 0;
 		padding: 0 7px;
 		margin: 0 5px 5px;
 		cursor: pointer;
 		display: inline-block;
+		@include fade(420ms);
+
+		&:hover {
+			border-color: $color-amber-hover;
+		}
+
+		&:active {
+			border-style: solid;
+			border-color: $color-amber;
+		}
 	}
 	
 	.tagsort-active {
