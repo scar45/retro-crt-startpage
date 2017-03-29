@@ -1,50 +1,79 @@
 // Helper for toggling CRT screen power effect
-$(".surround").click(function (e) {
-    if ($(e.currentTarget).hasClass("on")) {
-        // Shut off the CRT monitor
-        $("#switch").prop("checked", false);
-        $(e.currentTarget).removeClass("on");
-        $(".crt-effects").removeClass("scanlines");
-    } else {
-        // Turn on the CRT monitor and enable scanlines if the flicker checkbox is enabled
-        if ($("#flicker").is(":checked")) {
-            $(".crt-effects").addClass("scanlines");
-        }
-        $(e.currentTarget).addClass("on");
-        $("#switch").prop("checked", true);
-    }
-});
 
-// Helper for toggling CRT color theme
-$(".theme-button").click(function () {
-   if ($("#alttheme").is(":checked")) {
-        $("#alttheme").prop("checked", false);
-        $("body").removeClass("green")
-    } else {
-        $("#alttheme").prop("checked", true);
-        $("body").addClass("green")
-    }
-});
+// Turn on the CRT monitor and enable scanlines if the flicker checkbox is enabled
+function powerOn() {
+/*    if ($("#flicker").is(":checked")) {
+        $(".crt-effects").addClass("scanlines");
+    }*/
+    $("#switch").prop("checked", true);
+    $(".surround").addClass("on");
+    createCookie('power', 1);
+}
+// Shut off the CRT monitor
+function powerOff() {
+    $("#switch").prop("checked", false);
+    $(".surround").removeClass("on");
+    //$(".crt-effects").removeClass("scanlines");
+    createCookie('power', 0);
+}
 
 // Helper for toggling CRT screen flickering effect
-$(".power-label").click(function () {
-    if ($("#flicker").is(":checked") && $("#switch-wrap").hasClass("on")) {
-        $("#flicker").prop("checked", false);
-        $(".crt-effects").removeClass("scanlines");
-        $(".power-label").removeClass("btn-scanlines");
-    } else {
-        if ($("#switch").is(":checked")) {
-            $("#flicker").prop("checked", true);
-            $(".crt-effects").addClass("scanlines");
-            $(".power-label").addClass("btn-scanlines");
-        }
-    }
-});
+function scanlinesOn() {
+    $("#flicker").prop("checked", true);
+    $(".crt-effects").addClass("scanlines");
+    $(".power-label").addClass("btn-scanlines");
+    createCookie('flicker',1);
+}
+function scanlinesOff() {
+    $("#flicker").prop("checked", false);
+    $(".crt-effects").removeClass("scanlines");
+    $(".power-label").removeClass("btn-scanlines");
+    createCookie('flicker',0);
+}
 
+// Helper for toggling CRT color theme
+function greenTheme() {
+    $("#greenTheme").prop("checked", true);
+    $("body").addClass("green");
+    createCookie('greenTheme',1);
+}
+function amberTheme() {
+    $("#greenTheme").prop("checked", false);
+    $("body").removeClass("green");
+    createCookie('greenTheme',0);
+}
+
+function togglePower() {
+    if ($("#switch").prop("checked")) {
+        powerOff()
+    } else {
+        powerOn()
+    }
+}
+
+function toggleScanlines() {
+    //if ($("#flicker").is(":checked") && $("#switch-wrap").hasClass("on")) {
+    if ($("#flicker").is(":checked")) {
+        scanlinesOff();
+    } else {
+        scanlinesOn();
+    }
+}
+
+function toggleTheme() {
+    if ($("#greenTheme").is(":checked")) {
+        amberTheme();
+    } else {
+        greenTheme();
+    }
+}
+
+// Sort the main tags list
 function sortAlpha(a,b){
     return a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase() ? 1 : -1;
 };
 
+// Read the 'links.json' file for data to display
 function loadJSON() {
     //console.log("Loading JSON object of startpage links...")
     $.getJSON('links.json', function(links) {
@@ -127,15 +156,14 @@ function loadWeather(location, woeid) {
         woeid: woeid,
         unit: 'c',
         success: function (weather) {
-            var timestamp = moment(weather.updated);
             html = '<div class="weather-details"><ul class="weather-current"><li><a href="' + weather.link + '" target="_blank"><i class="icon-weather icon-' + weather.code + '"></i></a> ' + weather.temp + '&deg;' + weather.units.temp + '</li>';
             html += '<li class="currently">' + weather.currently + '</li>';
             html += '<li>H:' + weather.high + '&deg;C // L:' + weather.low + '&deg;C</li>';
             html += '<li>' + weather.city + ', ' + weather.region + '</li></ul>';
             html += '<ul class="weather-forecast"><li><i class="icon-weather icon-' + weather.forecast[1].code + '"></i><span>' + weather.forecast[1].day + ': ' + weather.forecast[1].text + '<br>H: ' + weather.forecast[1].high + '&deg;C // L: ' + weather.forecast[1].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[2].code + '"></i><span>' + weather.forecast[2].day + ': ' + weather.forecast[2].text + '<br>H: ' + weather.forecast[2].high + '&deg;C // L: ' + weather.forecast[2].low + '&deg;C</span></li><li><i class="icon-weather icon-' + weather.forecast[3].code + '"></i><span>' + weather.forecast[3].day + ': ' + weather.forecast[3].text + '<br>H: ' + weather.forecast[3].high + '&deg;C // L: ' + weather.forecast[3].low + '&deg;C</span></li></ul></div>';
-            html += '<p><span id="clock"></span> // Weather updated ' + moment(timestamp).fromNow() + '</p>';
+            html += '<p><span id="clock"></span> // Weather updated ' + moment(weather.updated).fromNow() + '</p>';
             $("#weather").html(html);
-            console.log(html);
+            //console.log(html);
             setInterval(update, 1000);
         },
         error: function (error) {
@@ -144,8 +172,8 @@ function loadWeather(location, woeid) {
     });
 }
 
+// Totally pointless, yet somewhat stylish extra 1KB of randomly generated pseudo-encryption bloat
 function randomgen() {
-    // Totally pointless, yet somewhat stylish extra 1KB of randomly generated pseudo-encryption bloat
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@^$_@`";
 
@@ -155,10 +183,55 @@ function randomgen() {
     $(".random").text(text+"^^EXTRA1KBPAGELOADWHYNOT?");
 }
 
+// Set a cookie to store prefs
+function createCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+// Get a cookie to read prefs
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+// Clean up the cookie crumbs
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
+
+function readPrefs() {
+    var cookiePower=readCookie('power'),
+        cookieFlicker=readCookie('flicker'),
+        cookieGreenTheme=readCookie('greenTheme');
+
+    if (cookiePower == 0) { powerOff() } else { powerOn() }
+    if (cookieFlicker == 0) { scanlinesOff() } else { scanlinesOn() }
+    if (cookieGreenTheme == 0) { amberTheme() } else { greenTheme() }
+
+    console.log("cookiePower=="+cookiePower+" /// cookieFlicker=="+cookieFlicker+" /// cookieGreenTheme=="+cookieGreenTheme);
+}
+
 $(document).ready(function () {
+    readPrefs(); // Read site preferences (flicker, colour, etc.)
     initLocation(); // Request location for weather via the browser
     loadJSON(); // Read the user's links collection
     randomgen(); // Add 1KB to the page for that A E S T H E T I C look
     setInterval(randomgen, 300000); // Regenerate the fake encrypted string in footer every 5 minutes because why not?
     setInterval(initLocation, 600000); // Update the weather every 10 minutes.
+
+    $(".surround").on('click', togglePower);
+    $(".power-label").on('click',toggleScanlines);
+    $(".theme-button").on('click', toggleTheme);
 });
