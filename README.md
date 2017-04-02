@@ -43,13 +43,6 @@ Most are straight forward, however note that the ```icon``` should be a file in 
 
 ## Running this startpage
 
-#### Locally without any server
- - **Caveats:** Cookie and weather support is not included
- - [Download the latest release](https://github.com/scar45/retro-crt-startpage/releases)
- - Extract the .zip and rename ```links.dist.json``` to ```links.json```
- - Edit ```links.json``` to contain the links you desire 
- - Open ```index.html``` with your preferred browser
-
 #### Traditional web server
  - Apache, nginx, IIS, etc.
  - [Download the latest release](https://github.com/scar45/retro-crt-startpage/releases)
@@ -66,6 +59,7 @@ Most are straight forward, however note that the ```icon``` should be a file in 
    - ```npm start```
  - Then browse to ```http://127.0.0.1:8080```
  - If you wish, you can modify the ```scripts: {start}``` node in ```package.json``` to pass [extra parameters](https://www.npmjs.com/package/http-server) to ```http-server``` which allows you to run on a different port, use SSL, etc.
+ - Press ```CTRL+C``` to stop the server
 
 ## Developing
 
@@ -94,7 +88,7 @@ This will dump compiled/processed files in a ./build directory, which will then 
 
 ### Releasing
 
-Run ```gulp``` with a parameter of ```release``` which will clean the ```./build``` directory, recompile all sources fresh, exclude unneeded files, and write a .zip file to ```dist/```:
+Run ```gulp``` with a parameter of ```release``` to clean the ```./build``` directory, recompile all sources fresh, exclude unneeded files, and write a .zip file to ```dist/```:
 
 ```
 gulp release

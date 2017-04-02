@@ -7,7 +7,7 @@
     "George Merlocco <george@merloc.co>"
   ],
   "scripts": {
-    "start": "./node_modules/http-server/bin/http-server"
+    "start": "./node_modules/http-server/bin/http-server -- build"
   },
   "private": true,
   "license": "MIT",
@@ -17,7 +17,7 @@
   },
   "bugs": {
     "url": "https://github.com/scar45/retro-crt-startpage/issues",
-    "email": "hello@scar45.me"
+    "email": "george@merloc.co"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
