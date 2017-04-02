@@ -1,9 +1,13 @@
 # Retro CRT Startpage
-#### by George Merlocco / scar45 @ https://scar45.me
+##### by George Merlocco / scar45 @ https://scar45.me
 
 ---
 
 This repository contains an HTML5-based layout for creating (or using) a personalized startpage with a retro CRT feel.
+
+Interactive example @ http://scar45.github.io/retro-crt-startpage/
+
+[![Screenie](preview.png "Click to try the demo version")](http://scar45.github.io/retro-crt-startpage/)
 
 ## Features
 
@@ -15,20 +19,49 @@ This repository contains an HTML5-based layout for creating (or using) a persona
   - Animated Scanlines/Flicker effect (**Note**: Can be CPU-intensive! Consider disabling if your system is stressed)
   - Colour choice between Amber and Green
 - Each of the settings above are saved as cookies, so the site will remember the state of what you've enabled/disabled
+- Variations of the ASCII header in ```styleguide.html```, or generate your own, and paste into the ```<pre class="title">``` tag in ```index.html```
 
-There are few ways to run this application:
+## Editing  ```links.json```
+
+Before working with this file, you'll need to rename the example ```links.dist.json``` to ```links.json```. You can simply start editing the file with a text editor, and modify each link to your liking. Here's an example:
+```
+    {
+      "name": "Syncthing",
+      "url": "https://syncthing.net/",
+      "icon": "icon-syncthing.png",
+      "invert": false,
+      "tags": [
+        "files",
+        "encrypted"
+      ]
+    }
+```
+Most are straight forward, however note that the ```icon``` should be a file in ```images/```, as this path gets prepended automatically. ```invert```, if true, will invert the colours of the icon image in the event that it is hard to see otherwise.
+ 
+ **NOTE**: As with any JSON, the last node should *not* contain any commas (,) -- This includes the main ```link```, and ```tags``` arrays. Verify this first if you aren't seeing any links.
+
+
+## Running this startpage
 
 #### Locally without any server
  - **Caveats:** Cookie and weather support is not included
- - Extract the .zip and open ```index.html``` with your preferred browser
+ - [Download the latest release](https://github.com/scar45/retro-crt-startpage/releases)
+ - Extract the .zip and rename ```links.dist.json``` to ```links.json```
+ - Edit ```links.json``` to contain the links you desire 
+ - Open ```index.html``` with your preferred browser
 
 #### Traditional web server
  - Apache, nginx, IIS, etc.
- - Extract the .zip file and upload to your hosted directory
+ - [Download the latest release](https://github.com/scar45/retro-crt-startpage/releases)
+ - Extract the .zip and rename ```links.dist.json``` to ```links.json```
+ - Edit ```links.json``` to contain the links you desire 
+ - Upload entire local directory to your hosted directory
   
 #### Included Node.js http-server
  - Requires  [Node.js](http://nodejs.org) to be installed
- - Extract the .zip file, then run:
+ - Clone the repository, or [download the latest archive](https://github.com/scar45/retro-crt-startpage/archive/master.zip), and rename ```links.dist.json``` to ```links.json```
+ - Edit ```links.json``` to contain the links you desire 
+ - Run:
    - ```npm install```
    - ```npm start```
  - Then browse to ```http://127.0.0.1:8080```
@@ -42,7 +75,7 @@ If you just wish to use this startpage as your own, then you do not need to read
 
 - [Node.js](http://nodejs.org)
 
-## Getting it running
+## Live Coding
 
 **Install dependencies:**
 ```
