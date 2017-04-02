@@ -5,9 +5,9 @@
 
 This repository contains an HTML5-based layout for creating (or using) a personalized startpage with a retro CRT feel.
 
-Interactive example @ http://scar45.github.io/retro-crt-startpage/
+Interactive example @ http://scar45.github.io/retro-crt-startpage/index.html
 
-[![Screenie](preview.png "Click to try the demo version")](http://scar45.github.io/retro-crt-startpage/)
+[![Screenie](preview.png "Click to try the demo version")](http://scar45.github.io/retro-crt-startpage/index.html)
 
 ## Features
 
