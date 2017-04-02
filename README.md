@@ -1,5 +1,5 @@
 # Retro CRT Startpage
-#### by scar45/George Merlocco @ https://scar45.me
+#### by George Merlocco / scar45 @ https://scar45.me
 
 ---
 
@@ -8,13 +8,31 @@ This repository contains an HTML5-based layout for creating (or using) a persona
 ## Features
 
 - Links are read in from a JSON file that's easy to update (see ```links.dist.json``` for an example)
-- Weather support with browser location using jQuery Simple Weather (nothing is logged/traced, check the source!)
+- Weather support with browser location using jQuery Simple Weather
 - Google search form (can be changed to other search providers if you wish)
 - 3 customizable design features:
   - Power On/Off with CRT effects
   - Animated Scanlines/Flicker effect (**Note**: Can be CPU-intensive! Consider disabling if your system is stressed)
   - Colour choice between Amber and Green
 - Each of the settings above are saved as cookies, so the site will remember the state of what you've enabled/disabled
+
+There are few ways to run this application:
+
+#### Locally without any server
+ - **Caveats:** Cookie and weather support is not included
+ - Extract the .zip and open ```index.html``` with your preferred browser
+
+#### Traditional web server
+ - Apache, nginx, IIS, etc.
+ - Extract the .zip file and upload to your hosted directory
+  
+#### Included Node.js http-server
+ - Requires  [Node.js](http://nodejs.org) to be installed
+ - Extract the .zip file, then run:
+   - ```npm install```
+   - ```npm start```
+ - Then browse to ```http://127.0.0.1:8080```
+ - If you wish, you can modify the ```scripts: {start}``` node in ```package.json``` to pass [extra parameters](https://www.npmjs.com/package/http-server) to ```http-server``` which allows you to run on a different port, use SSL, etc.
 
 ## Developing
 
@@ -32,7 +50,7 @@ npm install
 ```
 ...then rename ```links.dist.json``` to ```links.json```, and customize it to your heart's content.
 
-**Start a first build, then spawn webserver for live coding (browser-sync):**
+Start a first build, then spawn webserver for live coding (browser-sync):
 ```
 gulp
 ```
@@ -43,31 +61,12 @@ This will dump compiled/processed files in a ./build directory, which will then 
 
 ### Releasing
 
-**Run ```gulp``` with a parameter of ```release``` which will clean the ```./build``` directory and recompile all sources fresh**:
+Run ```gulp``` with a parameter of ```release``` which will clean the ```./build``` directory, recompile all sources fresh, exclude unneeded files, and write a .zip file to ```dist/```:
 
 ```
 gulp release
 ```
-
-You'll find everything in ```./build``` again, ready to be served from your preferred webserver. 
-
-### Running under Node http-server
-
-```
-npm install http-server -g
-```
-
-then:
-
-```
-cd build/
-http-server
-```
-
-You may want to [check the parameters on http-server](https://www.npmjs.com/package/http-server), which will allow you to customize the port/use SSL/etc. if you should prefer.
-
 ---
-
 ...and that's about it! I hope you enjoy this little nostalgic throwback to the terminals of old.
 
 Thanks!

@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     stripCssComments = require('gulp-strip-css-comments'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    zip = require('gulp-zip');
 	
 var config = {
     paths: {
@@ -50,7 +51,13 @@ gulp.task('clean', function() {
 });
 
 gulp.task('cleanpostrelease', function() {
-    return del(['./build/css/**/*.map', './build/css/**/*.css' ]);
+    return del(['./build/css/**/*.map' ])
+});
+
+gulp.task('ziprelease', function() {
+    return gulp.src(['./build/**/*','!./build/links.json'])
+        .pipe(zip('retro-crt-startpage-release.zip'))
+        .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('html', ['scripts'], function() {
@@ -110,7 +117,7 @@ gulp.task('liveCoding', ['untouched', 'html', 'css'], function() {
 });
 
 gulp.task('release', function() {
-    runSequence('clean', 'css', ['untouched', 'html'], 'cleanpostrelease')
+    runSequence('clean', ['untouched', 'html', 'css'], 'cleanpostrelease', 'ziprelease')
 });
 
 gulp.task('default', ['liveCoding'], function(){
