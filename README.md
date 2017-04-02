@@ -12,14 +12,16 @@ Interactive example @ http://scar45.github.io/retro-crt-startpage/index.html
 ## Features
 
 - Links are read in from a JSON file that's easy to update (see ```links.dist.json``` for an example)
+- Tag filters
 - Weather support with browser location using jQuery Simple Weather
 - Google search form (can be changed to other search providers if you wish)
-- 3 customizable design features:
+- 3 customizable design features toggled via the metal plate in the top-right area:
   - Power On/Off with CRT effects
   - Animated Scanlines/Flicker effect (**Note**: Can be CPU-intensive! Consider disabling if your system is stressed)
   - Colour choice between Amber and Green
 - Each of the settings above are saved as cookies, so the site will remember the state of what you've enabled/disabled
 - Variations of the ASCII header in ```styleguide.html```, or generate your own, and paste into the ```<pre class="title">``` tag in ```index.html```
+- **WARNING**: The animated scanlines/flicker can be quite demanding on your CPU
 
 ## Editing  ```links.json```
 
