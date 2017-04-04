@@ -19,7 +19,8 @@ html, body {
 }
 
 body {
-  background: rgba(0, 0, 0, 0.88);
+  //background: rgba(0, 0, 0, 0.88);
+  background: url(../images/crt_amber_bg.jpg) no-repeat center fixed #333;
   color: $color-amber;
   text-shadow: 0px 1px 4px $color-amber-text-glow;
   font-family: VT220, mono, Monospace;
@@ -287,7 +288,6 @@ blockquote {
 @media (min-width: $bp-tablet) {
 
   body {
-    background: url(../images/crt_amber_bg.jpg) no-repeat center fixed #333;
     background-size: cover;
   }
 
