@@ -220,6 +220,7 @@ ul.shortcuts {
 
   span {
     display: inline-block;
+    margin-left: 90px;
   }
 
   span.tags {
@@ -254,9 +255,7 @@ ul.shortcuts {
     -webkit-transition: all 0.42s;
     -moz-transition: all 0.42s;
     transition: all 0.42s;
-    float: left;
-    margin: 4px 20px 15px 0;
-    position: relative;
+    position: absolute;
   }
 
   .retro.invert {
