@@ -27,6 +27,13 @@ $screen-background:#121010;
   height: 100%;
   animation: fade_to_black 2s linear;
   animation-fill-mode: forwards;
+  display: none;
+}
+
+@media (min-width: $bp-tablet) {
+  .crt-frame {
+    display: block;
+  }
 }
 
 .crt-effects {

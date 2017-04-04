@@ -32,14 +32,16 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
   animation-fill-mode:forwards;
 }
 
-#switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
-  display: none;
-  animation:amber_fade_from_black 2s linear;
-  animation-fill-mode:forwards;
-}
+@media (min-width: $bp-tablet) {
+  #switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
+    display: none;
+    animation:amber_fade_from_black 2s linear;
+    animation-fill-mode:forwards;
+  }
 
-#switch:checked~.crt-frame-amber {
-  display: block;
+  #switch:checked~.crt-frame-amber {
+    display: block;
+  }
 }
 
 .switch-mount {
