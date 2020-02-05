@@ -67,7 +67,6 @@ pre {
   }
 }
 
-
 pre.binary {
   display: none;
   text-align: right;
@@ -132,7 +131,8 @@ ul {
   @include stripmp;
 }
 
-input, button, select, textarea {
+#searchform {
+  display: inline;
 }
 
 input:not(input.btn), select, textarea {
@@ -147,11 +147,12 @@ input:not(input.btn):focus, select:focus, textarea:focus {
   color: $color-amber-hover !important;
 }
 
-input[type=text] {
+input[type=text], #clock {
+  display: inline-block;
   background: rgba(0, 0, 0, 0.4);
   border: 1px dashed $color-amber-hover;
   border-width: 1px 0;
-  width: 100%;
+  width: 75%;
   padding: 10px;
   margin: 1rem 0 0;
   color: $color-amber-hover;
@@ -161,6 +162,11 @@ input[type=text]:focus {
   background: rgba(0, 0, 0, 0.88);
   border-bottom-style: solid;
   color: $color-amber;
+}
+
+#clock {
+  width: 25%;
+  text-align: right;
 }
 
 ::-moz-placeholder, ::-webkit-input-placeholder {

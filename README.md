@@ -13,7 +13,6 @@ Interactive example @ http://scar45.github.io/retro-crt-startpage/index.html
 
 - Links are read in from a JSON file that's easy to update (see ```links.dist.json``` for an example)
 - Tag filters
-- Weather support with browser location using jQuery Simple Weather
 - Google search form (can be changed to other search providers if you wish)
 - 3 customizable design features toggled via the metal plate in the top-right area:
   - Power On/Off with CRT effects
@@ -39,7 +38,7 @@ Before working with this file, you'll need to rename the example ```links.dist.j
     }
 ```
 Most are straight forward, however note that the ```icon``` should be a file in ```images/```, as this path gets prepended automatically. ```invert```, if true, will invert the colours of the icon image in the event that it is hard to see otherwise.
- 
+
  **NOTE**: As with any JSON, the last node should *not* contain any commas (,) -- This includes the main ```link```, and ```tags``` arrays. Verify this first if you aren't seeing any links.
 
 
@@ -49,13 +48,13 @@ Most are straight forward, however note that the ```icon``` should be a file in 
  - Apache, nginx, IIS, etc.
  - [Download the latest release](https://github.com/scar45/retro-crt-startpage/releases)
  - Extract the .zip and rename ```links.dist.json``` to ```links.json```
- - Edit ```links.json``` to contain the links you desire 
+ - Edit ```links.json``` to contain the links you desire
  - Upload entire local directory to your hosted directory
-  
+
 #### Included Node.js http-server
  - Requires  [Node.js](http://nodejs.org) to be installed
  - Clone the repository, or [download the latest archive](https://github.com/scar45/retro-crt-startpage/archive/master.zip), and rename ```links.dist.json``` to ```links.json```
- - Edit ```links.json``` to contain the links you desire 
+ - Edit ```links.json``` to contain the links you desire
  - Run:
    - ```npm install```
    - ```npm start```

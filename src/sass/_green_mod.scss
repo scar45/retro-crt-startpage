@@ -44,10 +44,14 @@ body.green {
     color: $color-green-hover !important;
   }
 
-  input[type=text] {
+  input[type=text], #clock {
     border: 1px dashed $color-green-hover;
     border-width: 1px 0;
     color: $color-green-hover;
+  }
+
+  #clock {
+    color: $color-green;
   }
 
   input[type=text]:focus {
@@ -141,18 +145,6 @@ body.green {
     color: $color-green;
   }
 
-  #weather {
-    ul.weather-current {
-      border-right: 1px dashed $color-green;
-    }
-
-    ul.weather-forecast {
-      li {
-        border-bottom: 1px dashed $color-green;
-      }
-    }
-  }
-
   @media (min-width: $bp-tablet) {
 
     .crt-frame-green {
@@ -166,33 +158,7 @@ body.green {
     a:focus::before {
       background: $color-green-hover;
     }
-
-    #weather {
-      ul.weather-forecast {
-        li {
-          border-right: 1px dashed $color-green;
-
-          &:last-child {
-            border-bottom: 1px dashed $color-green;
-          }
-        }
-      }
-    }
-
   }
-
-  @media (min-width: $bp-desktop) {
-    #weather {
-      ul.weather-forecast {
-        li {
-          &:last-child {
-            border-bottom: 1px dashed $color-green;
-          }
-        }
-      }
-    }
-  }
-
 }
 
 @media (max-width: $bp-tablet) {

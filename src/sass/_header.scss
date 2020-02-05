@@ -1,5 +1,5 @@
 // _header.scss
-// Contains declarations for the title, search, and weather widgets
+// Contains declarations for the title, search, and clock widgets
 
 @media (min-width: 1500px) {
   header {
@@ -7,7 +7,7 @@
     position: relative;
     display: flex;
     flex: 0 1 auto;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 
     > div {
@@ -16,8 +16,12 @@
       max-width: 50%;
 
       input[type=text] {
-        width: 93%;
+        width: 65%;
         margin-top: 35px;
+      }
+
+      #clock {
+        width: 35%
       }
     }
   }
