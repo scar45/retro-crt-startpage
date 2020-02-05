@@ -3,6 +3,7 @@
 
 body.green {
   background: url(../images/crt_green_bg.jpg) no-repeat center fixed $color-grey-dark;
+  background-size: cover;
   color: $color-green;
   text-shadow: 0px 1px 4px $color-green-text-glow;
 
@@ -69,7 +70,7 @@ body.green {
   @media (min-width: $bp-tablet) {
     #switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
       display: none;
-      animation:green_fade_from_black 2s linear;
+      animation:green_fade_from_black 1.5s linear;
       animation-fill-mode:forwards;
     }
 
@@ -99,7 +100,7 @@ body.green {
     .retro.invert {
       -webkit-filter: invert(1) sepia(1) saturate(30) hue-rotate(50deg);
     }
-    
+
     a:hover .retro {
       -webkit-filter: none;
     }
@@ -192,4 +193,10 @@ body.green {
     }
   }
 
+}
+
+@media (max-width: $bp-tablet) {
+  body.green {
+    background-size: auto;
+  }
 }
