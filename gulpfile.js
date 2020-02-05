@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     stripCssComments = require('gulp-strip-css-comments'),
     runSequence = require('run-sequence'),
     zip = require('gulp-zip');
-	
+
 var config = {
     paths: {
         html: {
@@ -30,7 +30,7 @@ var config = {
             dest: "build/images"
         },
         css: {
-            src: ["src/css/normalize.css", "src/css/whhg.css"],
+            src: ["src/css/normalize.css"],
             dest: "build/css"
         },
         sass: {
