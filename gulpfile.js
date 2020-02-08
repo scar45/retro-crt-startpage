@@ -38,7 +38,7 @@ var config = {
             dest: "build/css"
         },
         untouched: {
-            src: ["src/.htaccess", "src/*.png", "src/*.xml", "src/*.txt"],
+            src: ["src/.htaccess", "src/*.png", "src/*.xml", "src/*.txt", "src/*.mp3"],
             dest: "build",
             fontSrc: "src/fonts/**/*",
             fontDest: "build/fonts"

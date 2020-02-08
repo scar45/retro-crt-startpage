@@ -5,12 +5,16 @@ function powerOn() {
 /*    if ($("#flicker").is(":checked")) {
         $(".crt-effects").addClass("scanlines");
     }*/
+    var sndOn = document.getElementById("snd_power_on");
+    sndOn.play();
     $("#switch").prop("checked", true);
     $(".surround").addClass("on");
     createCookie('power', 1);
 }
 // Shut off the CRT monitor
 function powerOff() {
+    var sndOff = document.getElementById("snd_power_off");
+    sndOff.play();
     $("#switch").prop("checked", false);
     $(".surround").removeClass("on");
     //$(".crt-effects").removeClass("scanlines");
@@ -105,12 +109,13 @@ function loadJSON() {
             });
         });
     }).done(function(){
-        $('div.tag-list').tagSort({
+        $('div.tag-wrap').tagSort({
             items: 'li.tagged-item',
             reset: '.tagsort-reset',
+            sortType: 'single',
             fadeTime: 420
         });
-        $('div.tag-list span:not(.tagsort-reset)').sort(sortAlpha).appendTo('div.tag-list');
+        $('div.tag-wrap span:not(.tagsort-reset)').sort(sortAlpha).appendTo('div.tag-wrap');
     });
 }
 
@@ -209,6 +214,9 @@ $(document).ready(function () {
     //initLocation(); // Request location for weather via the browser
     //setInterval(initLocation, 600000); // Update the weather every 10 minutes.
 
+    $(".tagsort-toggle").on('click', function() {
+        $(".tag-wrap").toggle();
+    });
     $(".surround").on('click', togglePower);
     $(".power-label").on('click',toggleScanlines);
     $(".theme-button").on('click', toggleTheme);
