@@ -288,11 +288,17 @@ ul.shortcuts {
 
 }
 
-.random {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  cursor: not-allowed;
-  line-height: 1;
+footer {
+  .random, hr:first-child {
+    display: none;
+  }
+
+  .random {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    cursor: not-allowed;
+    line-height: 1;
+  }
 }
 
 blockquote {
