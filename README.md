@@ -1,5 +1,5 @@
 # Retro CRT Startpage
-##### by George Merlocco / scar45 @ https://scar45.me
+##### by George Merlocco (scar45) @ https://george.merloc.co
 
 ---
 
