@@ -1,27 +1,70 @@
 // _header.scss
 // Contains declarations for the title, search, and clock widgets
 
-@media (min-width: 1500px) {
-  header {
-    margin-top: 20px;
-    position: relative;
-    display: flex;
-    flex: 0 1 auto;
-    flex-direction: column;
-    flex-wrap: wrap;
+header {
+  margin: 20px 0;
 
-    > div {
-      flex-grow: 1;
-      flex-basis: 50%;
-      max-width: 50%;
+  > div {
+    .search-and-clock {
+      display: flex;
+      flex-direction: row;
 
-      input[type=text] {
-        width: 65%;
-        margin-top: 35px;
+      form {
+        width: 100%;
+        margin-top: 0;
       }
 
       #clock {
+        text-align: right;
         width: 35%
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-tablet) and (max-width: 1060px) {
+  header {
+    > div {
+      .search-and-clock {
+        form {
+          width: 65%;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1500px) {
+  header {
+    position: relative;
+    display: flex;
+    flex: 0 1 auto;
+    margin: 20px 0 40px;
+
+    pre {
+      float: left;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 50%;
+      max-width: 50%;
+      margin-left: 45px;
+
+      * {
+        align: start;
+      }
+
+      .search-and-clock {
+        flex-direction: row-reverse;
+
+        form {
+          width: 65%;
+        }
+
+        #clock {
+          text-align: left;
+        }
       }
     }
   }

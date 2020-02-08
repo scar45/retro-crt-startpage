@@ -113,7 +113,7 @@ function loadJSON() {
             items: 'li.tagged-item',
             reset: '.tagsort-reset',
             sortType: 'single',
-            fadeTime: 420
+            fadeTime: 200
         });
         $('div.tag-wrap span:not(.tagsort-reset)').sort(sortAlpha).appendTo('div.tag-wrap');
     });

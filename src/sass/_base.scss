@@ -131,10 +131,6 @@ ul {
   @include stripmp;
 }
 
-#searchform {
-  display: inline;
-}
-
 input:not(input.btn), select, textarea {
   border-color: $color-amber !important;
   background: rgba(255, 255, 255, 0.15) !important;
@@ -152,7 +148,7 @@ input[type=text], #clock {
   background: rgba(0, 0, 0, 0.4);
   border: 1px dashed $color-amber-hover;
   border-width: 1px 0;
-  width: 75%;
+  width: 100%;
   padding: 10px;
   margin: 1rem 0 0;
   color: $color-amber-hover;
@@ -167,6 +163,15 @@ input[type=text]:focus {
 #clock {
   width: 25%;
   text-align: right;
+}
+
+@media (max-width: $bp-tablet) {
+  input[type=text] {
+    width: 100%;
+  }
+  #clock {
+    display: none;
+  }
 }
 
 ::-moz-placeholder, ::-webkit-input-placeholder {
@@ -223,11 +228,15 @@ ul.shortcuts {
     margin: 2rem 0;
     white-space: pre-wrap;
     word-break: break-all;
+
+    a {
+      display: inline-block;
+    }
   }
 
   span {
     display: inline-block;
-    margin-left: 90px;
+    margin-left: 100px;
   }
 
   span.tags {
@@ -317,32 +326,38 @@ blockquote {
     }
   }
 
-  a.bookmark span.link-name {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 5px;
-  }
+  a.bookmark {
+    span.link-name {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 5px;
+    }
 
-  a.bookmark span.link-name, a.bookmark span.link-url {
-    padding-left: 6px;
+    &:hover span.link-name {
+      color: $color-black;
+      text-shadow: 1px 1px 0 #000;
+    }
   }
 
   a:not(.bookmark)::before, a.bookmark span.link-name::before {
     content: "";
     position: absolute;
-    right: 0px;
+    right: 0;
     height: 1px;
-    left: 0px;
+    left: 0;
     bottom: -1px;
     background: $color-amber-hover;
     opacity: 0.4;
     transform: scaleX(0.85) translateY(0.15rem);
     transition: all 0.2s ease 0s;
+    z-index: -1;
   }
 
   a:focus::before, a:hover::before, a.bookmark:hover span.link-name::before {
-    opacity: 0.75;
-    transform: scaleX(1);
+    opacity: 0.88;
+    transform: scaleX(1.15);
+    height: 110%;
+    bottom: 0;
   }
 
   a:focus::before {

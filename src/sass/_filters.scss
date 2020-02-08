@@ -5,6 +5,10 @@
 	line-height: 28px;
 	margin-top: 2rem;
 
+	.tag-wrap {
+		display: inline;
+	}
+
 	span {
 		background: rgba(0,0,0,0.45);
 		border: 1px dashed rgba(0,0,0,0);
@@ -13,7 +17,7 @@
 		margin: 0 5px 5px;
 		cursor: pointer;
 		display: inline-block;
-		@include fade(420ms);
+		@include fade(200ms);
 
 		&:hover {
 			border-color: $color-amber-hover;
@@ -23,10 +27,32 @@
 			border-style: solid;
 			border-color: $color-amber;
 		}
-	}
-	
+
+		&.tagsort-toggle {
+			display: none;
+		}
+ 	}
+
 	.tagsort-active {
-		background: $color-amber;
+		background: #{$color-amber-hover}CC;
 		color: $color-black;
+		text-shadow: 1px 1px 0 #000;
+	}
+}
+
+@media (max-width: $bp-tablet) {
+	.tag-list {
+		.tag-wrap {
+			display: none;
+		}
+
+		span {
+			padding: 5px 12px;
+			margin: 7px;
+
+			&.tagsort-toggle {
+				display: inline-block;
+			}
+		}
 	}
 }
