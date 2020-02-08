@@ -7,20 +7,22 @@ This repository contains an HTML5-based layout for creating (or using) a persona
 
 Interactive example @ http://scar45.github.io/retro-crt-startpage/index.html
 
-[![Screenie](preview.png "Click to try the demo version")](http://scar45.github.io/retro-crt-startpage/index.html)
+[![Amber Screenie](preview-amber.png "Click to try the demo version")](http://scar45.github.io/retro-crt-startpage/index.html)
+
+[![Green Screenie](preview-green.png "Click to try the demo version")](http://scar45.github.io/retro-crt-startpage/index.html)
 
 ## Features
 
 - Links are read in from a JSON file that's easy to update (see ```links.dist.json``` for an example)
 - Tag filters
-- Google search form (can be changed to other search providers if you wish)
+- Search form via DuckDuckGo (can be changed to other search providers if you wish)
 - 3 customizable design features toggled via the metal plate in the top-right area:
-  - Power On/Off with CRT effects
-  - Animated Scanlines/Flicker effect (**Note**: Can be CPU-intensive! Consider disabling if your system is stressed)
+  - Power On/Off with CRT and sound effects
+  - Animated Scanlines/Flicker effect
   - Colour choice between Amber and Green
 - Each of the settings above are saved as cookies, so the site will remember the state of what you've enabled/disabled
-- Variations of the ASCII header in ```styleguide.html```, or generate your own, and paste into the ```<pre class="title">``` tag in ```index.html```
-- **WARNING**: The animated scanlines/flicker can be quite demanding on your CPU
+- Variations of the ASCII header in ```ascii-headers.html```, or generate your own, and paste into the ```<pre class="title">``` tag in ```index.html```
+- **NOTE**: The animated scanlines/flicker can be quite CPU intensive. Consider disabling if your system is stressed.
 
 ## Editing  ```links.json```
 
