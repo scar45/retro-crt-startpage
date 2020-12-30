@@ -52,7 +52,7 @@
     },
     {
       "name": "OwnCloud",
-      "url": "https://owncloud.org",
+      "url": "https://owncloud.com",
       "icon": "icon-owncloud.png",
       "invert": false,
       "tags": [
@@ -62,7 +62,7 @@
     },
     {
       "name": "Pastebin",
-      "url": "https://modernpaste.com",
+      "url": "https://github.com/mkaczanowski/pastebin",
       "icon": "icon-pastebin.png",
       "invert": false,
       "tags": [
@@ -72,7 +72,7 @@
     {
       "name": "Element",
       "url": "https://element.io",
-      "icon": "icon-riot-2.svg",
+      "icon": "icon-element.png",
       "invert": false,
       "tags": [
         "encrypted",
