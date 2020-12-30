@@ -23,7 +23,7 @@
     {
       "name": "Gitea",
       "url": "https://gitea.io",
-      "icon": "icon-git.png",
+      "icon": "icon-gitea.png",
       "invert": false,
       "tags": [
         "git",
@@ -70,8 +70,8 @@
       ]
     },
     {
-      "name": "Riot",
-      "url": "https://riot.im",
+      "name": "Element",
+      "url": "https://element.io",
       "icon": "icon-riot-2.svg",
       "invert": false,
       "tags": [
