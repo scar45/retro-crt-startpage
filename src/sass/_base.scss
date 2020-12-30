@@ -313,7 +313,7 @@ blockquote {
   }
 
   .wrapper {
-    padding: 32px 64px;
+    padding: 32px 64px 64px;
   }
 
   pre.title {
@@ -398,6 +398,10 @@ blockquote {
 
 @media (min-width: $bp-desktop) {
 
+  .wrapper {
+    padding: 32px 90px 64px;
+  }
+
   ul.shortcuts {
     li {
       margin: 4.2rem 3% 0 0;
@@ -411,7 +415,7 @@ blockquote {
 @media (min-width: $bp-desktop-l) {
 
   .wrapper {
-    padding: 32px 90px;
+    padding: 32px 110px 64px;
   }
 
 }
@@ -419,7 +423,7 @@ blockquote {
 @media (min-width: $bp-desktop-uw) {
 
   .wrapper {
-    padding: 32px 110px;
+    padding: 32px 110px 64px;
   }
 
   ul.shortcuts {
