@@ -23,7 +23,7 @@
     {
       "name": "Gitea",
       "url": "https://gitea.io",
-      "icon": "icon-git.png",
+      "icon": "icon-gitea.png",
       "invert": false,
       "tags": [
         "git",
@@ -52,7 +52,7 @@
     },
     {
       "name": "OwnCloud",
-      "url": "https://owncloud.org",
+      "url": "https://owncloud.com",
       "icon": "icon-owncloud.png",
       "invert": false,
       "tags": [
@@ -62,7 +62,7 @@
     },
     {
       "name": "Pastebin",
-      "url": "https://modernpaste.com",
+      "url": "https://github.com/mkaczanowski/pastebin",
       "icon": "icon-pastebin.png",
       "invert": false,
       "tags": [
@@ -70,9 +70,9 @@
       ]
     },
     {
-      "name": "Riot",
-      "url": "https://riot.im",
-      "icon": "icon-riot-2.svg",
+      "name": "Element",
+      "url": "https://element.io",
+      "icon": "icon-element.png",
       "invert": false,
       "tags": [
         "encrypted",
@@ -84,7 +84,7 @@
       "name": "FreshRSS",
       "url": "https://freshrss.org",
       "icon": "icon-rss.png",
-      "invert": false,
+      "invert": true,
       "tags": [
         "news",
         "feed"
