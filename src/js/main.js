@@ -1,24 +1,24 @@
 // Helper for toggling CRT screen power effect
-
-// Turn on the CRT monitor and enable scanlines if the flicker checkbox is enabled
 function powerOn() {
-/*    if ($("#flicker").is(":checked")) {
-        $(".crt-effects").addClass("scanlines");
-    }*/
     var sndOn = document.getElementById("snd_power_on");
     sndOn.play();
     $("#switch").prop("checked", true);
     $(".surround").addClass("on");
     createCookie('power', 1);
 }
-// Shut off the CRT monitor
 function powerOff() {
     var sndOff = document.getElementById("snd_power_off");
     sndOff.play();
     $("#switch").prop("checked", false);
     $(".surround").removeClass("on");
-    //$(".crt-effects").removeClass("scanlines");
     createCookie('power', 0);
+}
+function togglePower() {
+    if ($("#switch").prop("checked")) {
+        powerOff()
+    } else {
+        powerOn()
+    }
 }
 
 // Helper for toggling CRT screen flickering effect
@@ -34,6 +34,14 @@ function scanlinesOff() {
     $(".power-label").removeClass("btn-scanlines");
     createCookie('flicker',0);
 }
+function toggleScanlines() {
+    //if ($("#flicker").is(":checked") && $("#switch-wrap").hasClass("on")) {
+    if ($("#flicker").is(":checked")) {
+        scanlinesOff();
+    } else {
+        scanlinesOn();
+    }
+}
 
 // Helper for toggling CRT color theme
 function greenTheme() {
@@ -46,24 +54,6 @@ function amberTheme() {
     $("body").removeClass("green");
     createCookie('greenTheme',0);
 }
-
-function togglePower() {
-    if ($("#switch").prop("checked")) {
-        powerOff()
-    } else {
-        powerOn()
-    }
-}
-
-function toggleScanlines() {
-    //if ($("#flicker").is(":checked") && $("#switch-wrap").hasClass("on")) {
-    if ($("#flicker").is(":checked")) {
-        scanlinesOff();
-    } else {
-        scanlinesOn();
-    }
-}
-
 function toggleTheme() {
     if ($("#greenTheme").is(":checked")) {
         amberTheme();
@@ -120,7 +110,6 @@ function loadJSON() {
 }
 
 // Unused location lookup to be used with weather status later on (darksky.com)
-// Replace 'Toronto' (line 146) with your city name
 function initLocation() {
     //console.log("Getting weather info...");
     if ("geolocation" in navigator) {
@@ -208,15 +197,20 @@ function readPrefs() {
 $(document).ready(function () {
     readPrefs(); // Read site preferences (flicker, colour, etc.)
     loadJSON(); // Read the user's links collection
-    randomgen(); // Add 1KB to the page for that A E S T H E T I C look
-    setInterval(randomgen, 300000); // Regenerate the fake encrypted string in footer every 5 minutes because why not?
     setInterval(updateTime, 1000); // Update the time every second.
+
+    // Disabled functions (design change + weather API issues)
+    //randomgen(); // Add 1KB to the page for that A E S T H E T I C look
+    //setInterval(randomgen, 300000); // Regenerate the fake encrypted string in footer every 5 minutes because why not?
     //initLocation(); // Request location for weather via the browser
     //setInterval(initLocation, 600000); // Update the weather every 10 minutes.
 
+    // Toggle display of tags on smaller breakpoints
     $(".tagsort-toggle").on('click', function() {
         $(".tag-wrap").toggle();
     });
+
+    // Design element toggles
     $(".surround").on('click', togglePower);
     $(".power-label").on('click',toggleScanlines);
     $(".theme-button").on('click', toggleTheme);
