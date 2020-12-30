@@ -26,7 +26,7 @@ var config = {
             dest: "build/js"
         },
         images: {
-            src: ["src/images/**/*.jpg", "src/images/**/*.jpeg", "src/images/**/*.png", "src/images/**/*.svg"],
+            src: ["src/images/**/*.jpg", "src/images/**/*.jpeg", "src/images/**/*.png", "src/images/**/*.svg", "!src/images/icons/custom/**/*"],
             dest: "build/images"
         },
         css: {
