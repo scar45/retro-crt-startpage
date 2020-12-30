@@ -18,13 +18,13 @@
 <body>
 
 <input type="checkbox" id="switch" checked>
-<input type="checkbox" id="flicker" checked>
+<input type="checkbox" id="flicker">
 <input type="checkbox" id="greenTheme">
 
 <div class="switch-wires"></div>
 <div class="switch-mount">
     <div class="switch-dirt"></div>
-    <div class="power-label btn-scanlines" title="Toggle Scanlines/Flicker"></div>
+    <div class="power-label" title="Toggle Scanlines/Flicker"></div>
     <div class="theme-button amber" title="Toggle CRT phosphor color"></div>
     <div id="switch-wrap" class="surround on">
         <div class="switch" title="Toggle CRT power">
@@ -39,12 +39,18 @@
 <img class="crt-frame crt-frame-amber" src="images/crt_amber_mask.png"/>
 <img class="crt-frame crt-frame-green" src="images/crt_green_mask.png"/>
 
-<div class="crt-effects scanlines"></div>
+<div class="crt-effects"></div>
 
 <div class="wrapper container">
+    <audio id="snd_power_on" src="/power_on.mp3" autoplay="false" preload="auto">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+    <audio id="snd_power_off"  src="/power_off.mp3" autoplay="false" preload="auto">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
     <div class="terminal-content">
         <header>
-            <div>
+                <!-- See the 'ascii-headers.html' file for more options to copypasta below -->
                 <pre class="title">      __                   __
      /\ \__               /\ \__
   ___\ \ ,_\    __    _ __\ \ ,_\ _____     __       __      __
@@ -56,16 +62,18 @@
                                      \/_/            \_/__/
 
 </pre>
-                <form id="searchform" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="searchinput" class="search" placeholder="initiate google search of the interwebs"
-                           name="q" type="text" autocomplete="off" spellcheck="false"/>
-                </form>
+            <div>
+                <div class="search-and-clock">
+                    <form id="searchform" method="get" action="https://www.duckduckgo.com/" target="_blank">
+                        <input id="searchinput" class="search" placeholder="initiate search of the interwebs" name="q" type="text" autocomplete="off" spellcheck="false"/>
+                    </form>
+                    <div id="clock">01/01/1970 12:00:00 am</div>
+                </div>
+                <div class="tag-list">
+                    <label>Tags:</label><span class="tagsort-toggle">[ TOGGLE VIEW ]</span><div class="tag-wrap"><span class="tagsort-reset">[ CLEAR ]</span>// </label></div>
+                </div>
             </div>
-            <div id="weather"></div>
         </header>
-        <div class="tag-list">
-            <label>Tags:<span class="tagsort-reset">[ CLEAR ]</span>// </label>
-        </div>
         <ul class="shortcuts">
             <li>
                 <i class="icon icon-issue"></i>
@@ -75,21 +83,19 @@
                 <br><span class="tags">Please rename 'links.dist.json' to<br>'links.json' and edit to your liking.</span>
             </li>
         </ul>
-        <hr>
         <footer>
+            <hr>
             <pre class="random"></pre>
             <hr>
-            <p>Made with <i class="icon icon-pixelheart"></i> by <a href="https://scar45.me" target="_blank">scar45</a> // <a href="https://github.com/scar45/retro-crt-startpage" target="_blank"><i class="icon icon-code"></i> Source code</a> // <a href="https://github.com/scar45/retro-crt-startpage/releases" target="_blank"><i class="icon icon-download-alt"></i> Download</a></p>
+            <p>Made with &lt;3 by <a href="https://scar45.me" target="_blank">scar45</a> // <a href="https://github.com/scar45/retro-crt-startpage" target="_blank">Source</a></p>
         </footer>
     </div><!-- end .terminal-content -->
     <div class="overlay">SERIAL</div>
 </div><!-- end .wrapper -->
 
 <script src="js/vendor/jquery-1.12.0.min.js"></script>
-<script src="js/vendor/jquery.simpleWeather.min.js"></script>
 <script src="js/vendor/moment.js"></script>
 <script src="js/vendor/tagsort.min.js"></script>
-<script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
 </body>

@@ -67,7 +67,6 @@ pre {
   }
 }
 
-
 pre.binary {
   display: none;
   text-align: right;
@@ -132,9 +131,6 @@ ul {
   @include stripmp;
 }
 
-input, button, select, textarea {
-}
-
 input:not(input.btn), select, textarea {
   border-color: $color-amber !important;
   background: rgba(255, 255, 255, 0.15) !important;
@@ -147,7 +143,8 @@ input:not(input.btn):focus, select:focus, textarea:focus {
   color: $color-amber-hover !important;
 }
 
-input[type=text] {
+input[type=text], #clock {
+  display: inline-block;
   background: rgba(0, 0, 0, 0.4);
   border: 1px dashed $color-amber-hover;
   border-width: 1px 0;
@@ -161,6 +158,20 @@ input[type=text]:focus {
   background: rgba(0, 0, 0, 0.88);
   border-bottom-style: solid;
   color: $color-amber;
+}
+
+#clock {
+  width: 25%;
+  text-align: right;
+}
+
+@media (max-width: $bp-tablet) {
+  input[type=text] {
+    width: 100%;
+  }
+  #clock {
+    display: none;
+  }
 }
 
 ::-moz-placeholder, ::-webkit-input-placeholder {
@@ -217,11 +228,15 @@ ul.shortcuts {
     margin: 2rem 0;
     white-space: pre-wrap;
     word-break: break-all;
+
+    a {
+      display: inline-block;
+    }
   }
 
   span {
     display: inline-block;
-    margin-left: 90px;
+    margin-left: 100px;
   }
 
   span.tags {
@@ -273,11 +288,17 @@ ul.shortcuts {
 
 }
 
-.random {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  cursor: not-allowed;
-  line-height: 1;
+footer {
+  .random, hr:first-child {
+    display: none;
+  }
+
+  .random {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    cursor: not-allowed;
+    line-height: 1;
+  }
 }
 
 blockquote {
@@ -292,7 +313,7 @@ blockquote {
   }
 
   .wrapper {
-    padding: 32px 64px;
+    padding: 32px 64px 64px;
   }
 
   pre.title {
@@ -302,41 +323,47 @@ blockquote {
   }
 
   ul.shortcuts {
-    padding-bottom: 2rem;
+    padding-bottom: 4.2rem;
 
     li {
-      margin: 2rem 6% 0 0;
+      margin: 4.2rem 6% 0 0;
       flex-basis: 44%;
       max-width: 44%;
     }
   }
 
-  a.bookmark span.link-name {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 5px;
-  }
+  a.bookmark {
+    span.link-name {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 5px;
+    }
 
-  a.bookmark span.link-name, a.bookmark span.link-url {
-    padding-left: 6px;
+    &:hover span.link-name {
+      color: $color-black;
+      text-shadow: 1px 1px 0 #000;
+    }
   }
 
   a:not(.bookmark)::before, a.bookmark span.link-name::before {
     content: "";
     position: absolute;
-    right: 0px;
+    right: 0;
     height: 1px;
-    left: 0px;
+    left: 0;
     bottom: -1px;
     background: $color-amber-hover;
     opacity: 0.4;
     transform: scaleX(0.85) translateY(0.15rem);
     transition: all 0.2s ease 0s;
+    z-index: -1;
   }
 
   a:focus::before, a:hover::before, a.bookmark:hover span.link-name::before {
-    opacity: 0.75;
-    transform: scaleX(1);
+    opacity: 0.88;
+    transform: scaleX(1.15);
+    height: 110%;
+    bottom: 0;
   }
 
   a:focus::before {
@@ -371,9 +398,13 @@ blockquote {
 
 @media (min-width: $bp-desktop) {
 
+  .wrapper {
+    padding: 32px 90px 64px;
+  }
+
   ul.shortcuts {
     li {
-      margin: 2rem 3% 0 0;
+      margin: 4.2rem 3% 0 0;
       flex-basis: 30%;
       max-width: 30%;
     }
@@ -384,7 +415,7 @@ blockquote {
 @media (min-width: $bp-desktop-l) {
 
   .wrapper {
-    padding: 32px 90px;
+    padding: 32px 110px 64px;
   }
 
 }
@@ -392,12 +423,11 @@ blockquote {
 @media (min-width: $bp-desktop-uw) {
 
   .wrapper {
-    padding: 32px 110px;
+    padding: 32px 110px 64px;
   }
 
   ul.shortcuts {
     li {
-      margin: 2rem 3% 0 0;
       flex-basis: 22%;
       max-width: 22%;
     }

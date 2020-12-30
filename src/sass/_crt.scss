@@ -136,3 +136,15 @@ $screen-background:#121010;
   visibility:hidden;
   pointer-events:none;
 }
+
+@media (min-width: $bp-desktop-l) {
+  .overlay{
+    left:120px;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .overlay{
+    display: none;
+  }
+}

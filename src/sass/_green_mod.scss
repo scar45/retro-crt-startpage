@@ -3,6 +3,7 @@
 
 body.green {
   background: url(../images/crt_green_bg.jpg) no-repeat center fixed $color-grey-dark;
+  background-size: cover;
   color: $color-green;
   text-shadow: 0px 1px 4px $color-green-text-glow;
 
@@ -43,10 +44,14 @@ body.green {
     color: $color-green-hover !important;
   }
 
-  input[type=text] {
+  input[type=text], #clock {
     border: 1px dashed $color-green-hover;
     border-width: 1px 0;
     color: $color-green-hover;
+  }
+
+  #clock {
+    color: $color-green;
   }
 
   input[type=text]:focus {
@@ -69,7 +74,7 @@ body.green {
   @media (min-width: $bp-tablet) {
     #switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
       display: none;
-      animation:green_fade_from_black 2s linear;
+      animation:green_fade_from_black 1.5s linear;
       animation-fill-mode:forwards;
     }
 
@@ -99,7 +104,7 @@ body.green {
     .retro.invert {
       -webkit-filter: invert(1) sepia(1) saturate(30) hue-rotate(50deg);
     }
-    
+
     a:hover .retro {
       -webkit-filter: none;
     }
@@ -126,7 +131,7 @@ body.green {
     }
 
     .tagsort-active {
-      background: $color-green;
+      background: #{$color-green-hover}CC;
     }
   }
 
@@ -138,18 +143,6 @@ body.green {
 
   i.icon-weather {
     color: $color-green;
-  }
-
-  #weather {
-    ul.weather-current {
-      border-right: 1px dashed $color-green;
-    }
-
-    ul.weather-forecast {
-      li {
-        border-bottom: 1px dashed $color-green;
-      }
-    }
   }
 
   @media (min-width: $bp-tablet) {
@@ -165,31 +158,11 @@ body.green {
     a:focus::before {
       background: $color-green-hover;
     }
-
-    #weather {
-      ul.weather-forecast {
-        li {
-          border-right: 1px dashed $color-green;
-
-          &:last-child {
-            border-bottom: 1px dashed $color-green;
-          }
-        }
-      }
-    }
-
   }
+}
 
-  @media (min-width: $bp-desktop) {
-    #weather {
-      ul.weather-forecast {
-        li {
-          &:last-child {
-            border-bottom: 1px dashed $color-green;
-          }
-        }
-      }
-    }
+@media (max-width: $bp-tablet) {
+  body.green {
+    background-size: auto;
   }
-
 }
