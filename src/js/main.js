@@ -87,7 +87,7 @@ function loadJSON() {
                 $(".shortcuts").append('' +
                     '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
                     '<a class="bookmark" href="'+data.url+'" target="_blank">' +
-                    '<img class="retro invert" src="images/'+data.icon+'"/>' +
+                    '<img class="retro invert" src="images/icons/'+data.icon+'"/>' +
                     '<span class="link-name">'+data.name+'</span>' +
                     '<br><span class="link-url">'+data.url+'</span>' +
                     '<br><span class="tags"></span><br>' +
@@ -97,7 +97,7 @@ function loadJSON() {
                 $(".shortcuts").append('' +
                     '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
                     '<a class="bookmark" href="'+data.url+'" target="_blank">' +
-                    '<img class="retro" src="images/'+data.icon+'"/>' +
+                    '<img class="retro" src="images/icons/'+data.icon+'"/>' +
                     '<span class="link-name">'+data.name+'</span>' +
                     '<br><span class="link-url">'+data.url+'</span>' +
                     '<br><span class="tags"></span><br>' +
@@ -199,7 +199,7 @@ function readPrefs() {
         cookieGreenTheme=readCookie('greenTheme');
 
     if (cookiePower == 0) { powerOff() } else { powerOn() }
-    if (cookieFlicker == 0) { scanlinesOff() } else { scanlinesOn() }
+    if (cookieFlicker == 1) { scanlinesOn() } else { scanlinesOff() }
     if (cookieGreenTheme == 0) { amberTheme() } else { greenTheme() }
 
     console.log("cookiePower=="+cookiePower+" /// cookieFlicker=="+cookieFlicker+" /// cookieGreenTheme=="+cookieGreenTheme);

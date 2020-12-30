@@ -75,11 +75,11 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
 .power-label {
   position: absolute;
   width: 32px;
-  height: 32px;
+  height: 26px;
   background: url(../images/power-mark.png) no-repeat;
   background-size: contain;
   bottom: 45px;
-  right: 10px;
+  right: 8px;
   cursor: pointer;
 }
 
