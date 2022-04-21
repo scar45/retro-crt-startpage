@@ -18,14 +18,45 @@ html, body {
   font-size: 14px;
 }
 
+:root {
+  --primary-color: #{$color-amber};
+  --primary-hover-color: #{$color-amber-hover};
+  --primary-text-glow-color: #{$color-amber-text-glow};
+}
+
 body {
   //background: rgba(0, 0, 0, 0.88);
-  background: url(../images/crt_amber_bg.jpg) no-repeat center fixed #333;
-  color: $color-amber;
-  text-shadow: 0px 1px 4px $color-amber-text-glow;
+  background: url(../images/crt_amber_bg.jpg) no-repeat center fixed $color-grey-dark;
+  color: var(--primary-color);
+  text-shadow: 0px 1px 4px var(--primary-text-glow-color);
   font-family: VT220, mono, Monospace;
   font-size: 20px;
   margin: 0;
+
+  &.green {
+    --primary-color: #{$color-green};
+    --primary-hover-color: #{$color-green-hover};
+    --primary-text-glow-color: #{$color-green-text-glow};
+
+    background-image: url(../images/crt_green_bg.jpg);
+
+    .crt-frame-amber {
+      display: none;
+    }
+
+    @media (min-width: $bp-tablet) {
+      #switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
+        display: none;
+        animation:green_fade_from_black 1.5s linear;
+        animation-fill-mode:forwards;
+      }
+
+      #switch:checked~.crt-frame-green {
+        display: block;
+      }
+    }
+
+  }
 }
 
 h1, h2 {
@@ -54,7 +85,7 @@ h3, h4, h5, h6 {
 
 pre {
   font-family: VT220, mono, Monospace;
-  color: $color-amber;
+  color: var(--primary-color);
   background: none;
   border: 0;
   border-radius: 0;
@@ -63,7 +94,7 @@ pre {
   overflow: visible;
 
   &:hover {
-    color: $color-amber-hover;
+    color: var(--primary-hover-color);
   }
 }
 
@@ -82,7 +113,7 @@ pre.title {
 }
 
 hr {
-  border: 1px dashed $color-amber-hover;
+  border: 1px dashed var(--primary-hover-color);
   border-width: 1px 0 0 0;
   margin: 1rem 0;
 }
@@ -101,16 +132,16 @@ i {
 
 a {
   position: relative;
-  color: $color-amber;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
 a:hover {
-  color: $color-amber-hover;
+  color: var(--primary-hover-color);
 }
 
 a:focus, a:active {
-  color: $color-amber;
+  color: var(--primary-color);
 }
 
 a:focus {
@@ -132,7 +163,7 @@ ul {
 }
 
 input:not(input.btn), select, textarea {
-  border-color: $color-amber !important;
+  border-color: var(--primary-color) !important;
   background: rgba(255, 255, 255, 0.15) !important;
   color: #222 !important;
 }
@@ -140,24 +171,24 @@ input:not(input.btn), select, textarea {
 input:not(input.btn):focus, select:focus, textarea:focus {
   border-color: $color-white !important;
   background: rgba(0, 0, 0, 0.7) !important;
-  color: $color-amber-hover !important;
+  color: var(--primary-hover-color) !important;
 }
 
 input[type=text], #clock {
   display: inline-block;
   background: rgba(0, 0, 0, 0.4);
-  border: 1px dashed $color-amber-hover;
+  border: 1px dashed var(--primary-hover-color);
   border-width: 1px 0;
   width: 100%;
   padding: 10px;
   margin: 1rem 0 0;
-  color: $color-amber-hover;
+  color: var(--primary-hover-color);
 }
 
 input[type=text]:focus {
   background: rgba(0, 0, 0, 0.88);
   border-bottom-style: solid;
-  color: $color-amber;
+  color: var(--primary-color);
 }
 
 #clock {
@@ -175,17 +206,17 @@ input[type=text]:focus {
 }
 
 ::-moz-placeholder, ::-webkit-input-placeholder {
-  color: $color-amber;
+  color: var(--primary-color);
 }
 
 ::-moz-selection { /* Code for Firefox */
   color: $color-black;
-  background: $color-amber-hover;
+  background: var(--primary-hover-color);
 }
 
 ::selection {
   color: $color-black;
-  background: $color-amber-hover;
+  background: var(--primary-hover-color);
 }
 
 .text-right {

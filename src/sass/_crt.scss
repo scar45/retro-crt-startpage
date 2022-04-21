@@ -15,6 +15,7 @@ $screen-background:#121010;
   overflow:hidden;
 }
 
+// TODO: Make this a div, not img, and change background-image via CSS vars
 .crt-frame {
   pointer-events: none;
   z-index: 9000;
