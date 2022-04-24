@@ -19,8 +19,7 @@ html, body {
 }
 
 body {
-  //background: rgba(0, 0, 0, 0.88);
-  background: url(../images/crt_amber_bg.jpg) no-repeat center fixed $color-grey-dark;
+  background: var(--primary-crt-bg-url) no-repeat center fixed $color-grey-dark;
   color: var(--primary-color);
   text-shadow: 0px 1px 4px var(--primary-text-glow-color);
   font-family: VT220, mono, Monospace;
@@ -34,8 +33,8 @@ body {
     --primary-text-glow-color: #{$color-green-text-glow};
     --primary-button-glow-color: #{$color-green-btn-theme-glow};
     --primary-crt-glow: #{$color-green-crt-glow};
-
-    background-image: url(../images/crt_green_bg.jpg);
+    --primary-crt-bg-url: url(../images/crt_green_bg.jpg);
+    --primary-crt-frame-url: url(../images/crt_green_mask.png);
 
     ul.shortcuts {
       .retro {
@@ -236,7 +235,9 @@ input[type=text]:focus {
 }
 
 .wrapper {
+  max-height: 0;
   padding: 20px;
+  transition: max-height 720ms linear;
 }
 
 .terminal-content {

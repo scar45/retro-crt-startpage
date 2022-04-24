@@ -16,14 +16,14 @@ $color-amber: #FFAF65;
 $color-amber-hover: #FF8700;
 $color-amber-dark: #c15b00;
 $color-amber-text-glow: rgba(255, 175, 101, 0.45);
-$color-amber-crt-glow: rgba(255, 135, 0, 0.15);
+$color-amber-crt-glow: rgba(255, 135, 0, 0.1);
 $color-amber-btn-theme-glow: rgba(255, 135, 0, 0.66);
 
 $color-green: #AFFF65;
 $color-green-hover: #87FF00;
 $color-green-dark: #5BC100;
 $color-green-text-glow: rgba(175, 255, 101, 0.45);
-$color-green-crt-glow: rgba(135, 255, 0, 0.15);
+$color-green-crt-glow: rgba(135, 255, 0, 0.1);
 $color-green-btn-theme-glow: rgba(0,255,0,0.5);
 
 
@@ -36,6 +36,8 @@ $color-green-btn-theme-glow: rgba(0,255,0,0.5);
   --primary-text-glow-color: #{$color-amber-text-glow};
   --primary-button-glow-color: #{$color-amber-btn-theme-glow};
   --primary-crt-glow: #{$color-amber-crt-glow};
+	--primary-crt-bg-url: url(../images/crt_amber_bg.jpg);
+	--primary-crt-frame-url: url(../images/crt_amber_mask.png);
 }
 
 
