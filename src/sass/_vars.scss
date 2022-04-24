@@ -26,6 +26,19 @@ $color-green-text-glow: rgba(175, 255, 101, 0.45);
 $color-green-crt-glow: rgba(135, 255, 0, 0.15);
 $color-green-btn-theme-glow: rgba(0,255,0,0.5);
 
+
+// CSS Vars
+
+:root {
+  --primary-color: #{$color-amber};
+  --primary-color-dark: #{$color-amber-dark};
+  --primary-hover-color: #{$color-amber-hover};
+  --primary-text-glow-color: #{$color-amber-text-glow};
+  --primary-button-glow-color: #{$color-amber-btn-theme-glow};
+  --primary-crt-glow: #{$color-amber-crt-glow};
+}
+
+
 // Breakpoints
 
 $bp-tablet: 768px;

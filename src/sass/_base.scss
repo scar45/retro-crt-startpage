@@ -18,12 +18,6 @@ html, body {
   font-size: 14px;
 }
 
-:root {
-  --primary-color: #{$color-amber};
-  --primary-hover-color: #{$color-amber-hover};
-  --primary-text-glow-color: #{$color-amber-text-glow};
-}
-
 body {
   //background: rgba(0, 0, 0, 0.88);
   background: url(../images/crt_amber_bg.jpg) no-repeat center fixed $color-grey-dark;
@@ -35,27 +29,32 @@ body {
 
   &.green {
     --primary-color: #{$color-green};
+    --primary-color-dark: #{$color-green-dark};
     --primary-hover-color: #{$color-green-hover};
     --primary-text-glow-color: #{$color-green-text-glow};
+    --primary-button-glow-color: #{$color-green-btn-theme-glow};
+    --primary-crt-glow: #{$color-green-crt-glow};
 
     background-image: url(../images/crt_green_bg.jpg);
 
-    .crt-frame-amber {
-      display: none;
+    ul.shortcuts {
+      .retro {
+        -webkit-filter: sepia(1) saturate(30) hue-rotate(70deg);
+      }
+
+      .retro.invert {
+        -webkit-filter: invert(1) sepia(1) saturate(30) hue-rotate(50deg);
+      }
     }
 
     @media (min-width: $bp-tablet) {
-      #switch:checked~.crt-frame-amber, #switch:checked~.crt-frame-green {
-        display: none;
-        animation:green_fade_from_black 1.5s linear;
-        animation-fill-mode:forwards;
-      }
-
       #switch:checked~.crt-frame-green {
         display: block;
       }
+      #switch:checked~.crt-frame-amber {
+        display: none;
+      }
     }
-
   }
 }
 
@@ -164,14 +163,15 @@ ul {
 
 input:not(input.btn), select, textarea {
   border-color: var(--primary-color) !important;
-  background: rgba(255, 255, 255, 0.15) !important;
-  color: #222 !important;
+  // background: rgba(255, 255, 255, 0.15) !important;
+  //color: #222 !important;
 }
 
 input:not(input.btn):focus, select:focus, textarea:focus {
-  border-color: $color-white !important;
+  border-bottom: 1px solid var(--primary-color) !important;
   background: rgba(0, 0, 0, 0.7) !important;
   color: var(--primary-hover-color) !important;
+  outline: none;
 }
 
 input[type=text], #clock {
@@ -283,7 +283,7 @@ ul.shortcuts {
   }
 
   span.link-url {
-    color: $color-amber-dark;
+    color: var(--primary-color-dark);
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
     -ms-transition: all 0.2s ease-in;
@@ -292,7 +292,7 @@ ul.shortcuts {
   }
 
   a:hover span.link-url {
-    color: $color-amber;
+    color: var(--primary-color);
   }
 
   .retro {
@@ -333,7 +333,7 @@ footer {
 }
 
 blockquote {
-  border-left: 2px dashed $color-amber;
+  border-left: 2px dashed var(--primary-color);
   font-size: 1.1rem;
 }
 
@@ -383,7 +383,7 @@ blockquote {
     height: 1px;
     left: 0;
     bottom: -1px;
-    background: $color-amber-hover;
+    background: var(--primary-hover-color);
     opacity: 0.4;
     transform: scaleX(0.85) translateY(0.15rem);
     transition: all 0.2s ease 0s;
@@ -398,7 +398,7 @@ blockquote {
   }
 
   a:focus::before {
-    background: $color-amber-hover;
+    background: var(--primary-hover-color);
   }
 
   a.btn::before, a.label::before, .pagination > li > a::before, #order-standard_cart .view-cart-tabs .nav-tabs > li > a::before {
