@@ -20,6 +20,7 @@ html, body {
 
 body {
   background: var(--primary-crt-bg-url) no-repeat center fixed $color-grey-dark;
+  background-size: cover;
   color: var(--primary-color);
   text-shadow: 0px 1px 4px var(--primary-text-glow-color);
   font-family: VT220, mono, Monospace;
@@ -235,9 +236,12 @@ input[type=text]:focus {
 }
 
 .wrapper {
-  max-height: 0;
   padding: 20px;
   transition: max-height 720ms linear;
+
+  @media (min-width: $bp-tablet) {
+    max-height: 0;
+  }
 }
 
 .terminal-content {
@@ -330,6 +334,11 @@ footer {
     word-wrap: break-word;
     cursor: not-allowed;
     line-height: 1;
+  }
+
+  a:hover {
+    color: $color-black;
+    text-shadow: 1px 1px 0 #000;
   }
 }
 

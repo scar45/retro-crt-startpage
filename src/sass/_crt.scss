@@ -32,11 +32,15 @@ $screen-background:#121010;
     left: 0;
     background-image: var(--primary-crt-frame-url);
     background-size: 100% 100%;
+
+    @media (max-width: $bp-tablet) {
+      display: none;
+    }
   }
 
   .crt-glow {
     content:'';
-    display:block;
+    display: block;
     position:absolute;
     z-index: -1;
     top:0;
@@ -54,6 +58,7 @@ $screen-background:#121010;
 }
 
 .crt-effects {
+  display: none;
   pointer-events: none;
   position: fixed;
   top: 0;
