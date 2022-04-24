@@ -21,7 +21,7 @@
 }
 
 i.icon-weather {
-  color: $color-amber;
+  color: var(--primary-color);
   font-family: weather;
   font-size: 128px;
   font-style: normal;

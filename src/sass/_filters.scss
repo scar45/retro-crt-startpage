@@ -20,12 +20,12 @@
 		@include fade(200ms);
 
 		&:hover {
-			border-color: $color-amber-hover;
+			border-color: var(--primary-hover-color);
 		}
 
 		&:active {
 			border-style: solid;
-			border-color: $color-amber;
+			border-color: var(--primary-color);
 		}
 
 		&.tagsort-toggle {
@@ -34,7 +34,7 @@
  	}
 
 	.tagsort-active {
-		background: #{$color-amber-hover}CC;
+		background: var(--primary-color-dark);
 		color: $color-black;
 		text-shadow: 1px 1px 0 #000;
 	}

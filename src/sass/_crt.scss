@@ -15,41 +15,54 @@ $screen-background:#121010;
   overflow:hidden;
 }
 
-.crt-frame {
+.crt {
   pointer-events: none;
-  z-index: 9000;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  animation: fade_to_black 2s linear;
-  animation-fill-mode: forwards;
-  display: none;
-}
+  z-index: 9000;
 
-@media (min-width: $bp-tablet) {
   .crt-frame {
-    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: var(--primary-crt-frame-url);
+    background-size: 100% 100%;
+  }
+
+  .crt-glow {
+    content:'';
+    display:block;
+    position:absolute;
+    z-index: -1;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    animation: fade_inner_glow 2s linear;
+    animation-fill-mode: forwards;
+
+    &.screen-on {
+      animation: fade_to_black 2s linear;
+      animation-fill-mode: forwards;
+    }
   }
 }
 
 .crt-effects {
-  background: url(../images/dirt-mask.png) no-repeat;
-  background-size: cover;
   pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
   bottom: -64px;
   right: 0;
+  background: url(../images/dirt-mask.png) no-repeat;
+  background-size: cover;
   overflow: hidden; // only to animate the unique scanline
-}
-
-.crt-frame-green {
-  display: none;
 }
 
 @keyframes turn-on{
