@@ -26,8 +26,10 @@ Interactive example @ http://scar45.github.io/retro-crt-startpage/index.html
 
 ## Editing  ```links.json```
 
-Before working with this file, you'll need to rename the example ```links.dist.json``` to ```links.json```. You can simply start editing the file with a text editor, and modify each link to your liking. Here's an example:
+Before working with this file, you'll need to rename the example ```links.dist.json``` to ```links.json```. You can simply start editing the file with a text editor, and modify each link to your liking. Here's an example of valid JSON with two links:
 ```
+{
+  "link": [
     {
       "name": "Syncthing",
       "url": "https://syncthing.net/",
@@ -37,32 +39,57 @@ Before working with this file, you'll need to rename the example ```links.dist.j
         "files",
         "encrypted"
       ]
+    },
+    {
+      "name": "NextCloud",
+      "url": "https://nextcloud.com",
+      "icon": "icon-nextcloud.svg",
+      "invert": true,
+      "tags": [
+        "private sharing",
+        "intranet"
+      ]
     }
+  ]
+}
 ```
-Most are straight forward, however note that the ```icon``` should be a file in ```images/```, as this path gets prepended automatically. ```invert```, if true, will invert the colours of the icon image in the event that it is hard to see otherwise.
 
- **NOTE**: As with any JSON, the last node should *not* contain any commas (,) -- This includes the main ```link```, and ```tags``` arrays. Verify this first if you aren't seeing any links.
+| key      | type | description |
+| ----------- | ----------- | - |
+| name      | string       | Display name of the shortcut |
+| url       | string       | URL with http(s)/etc. prefix |
+| icon      | string       | Filename of the icon (within `images/icons/`) |
+| tags      | array      | List of all associated tags/keywords |
+
+ **NOTE**: As with any JSON, the last node should *not* contain any commas (,) -- This includes the main `link`, and `tags` arrays. Verify this first if you aren't seeing any links.
 
 
 ## Running this startpage
 
-#### Traditional web server
+### Traditional web server
  - Apache, nginx, IIS, etc.
  - [Download the latest release](https://github.com/scar45/retro-crt-startpage/releases)
- - Extract the .zip and rename ```links.dist.json``` to ```links.json```
- - Edit ```links.json``` to contain the links you desire
+ - Extract the .zip and rename `links.dist.json` to `links.json`
+ - Edit `links.json` to contain the links you desire
  - Upload entire local directory to your hosted directory
 
-#### Included Node.js http-server
- - Requires  [Node.js](http://nodejs.org) to be installed
- - Clone the repository, or [download the latest archive](https://github.com/scar45/retro-crt-startpage/archive/master.zip), and rename ```links.dist.json``` to ```links.json```
- - Edit ```links.json``` to contain the links you desire
+### Included Node.js http-server
+_As of the current time of writing Node.js v10 is required (you can use [NVM](https://github.com/nvm-sh/nvm) to switch Node versions on-the-fly)_
+ - Clone the repository, or [download the latest archive](https://github.com/scar45/retro-crt-startpage/archive/master.zip), and rename `links.dist.json` to `links.json`
+ - Edit `links.json` to contain the links you desire
  - Run:
-   - ```npm install```
-   - ```npm start```
- - Then browse to ```http://127.0.0.1:8080```
- - If you wish, you can modify the ```scripts: {start}``` node in ```package.json``` to pass [extra parameters](https://www.npmjs.com/package/http-server) to ```http-server``` which allows you to run on a different port, use SSL, etc.
- - Press ```CTRL+C``` to stop the server
+   - `npm install`
+   - `npm run release`
+   - `npm start`
+ - Then browse to `http://0.0.0.0:4050` (default port is `4050`, change it in `package.json`)
+ - If you wish, you can modify the `PORT` and `HOST` values in `server.js` to run the web server on a different port, IP, etc.
+ - Press `CTRL+C` to stop the server
+
+### Docker
+
+Ensure that Docker is installed, then simply run `npm run docker`, which will build the app, and a version-matching, tagged Docker image, then spin up a new container named `retro-crt-startpage` based on that latest image.
+
+Note this task will also create/attach a Docker volume named `retro-crt-startpage_data` mapped to the path `/usr/src/app/build` within the container. This allows you to easily modify `links.json` from your host OS, or even within the container itself as `nano` is installed.
 
 ## Developing
 
@@ -78,11 +105,11 @@ If you just wish to use this startpage as your own, then you do not need to read
 ```
 npm install
 ```
-...then rename ```links.dist.json``` to ```links.json```, and customize it to your heart's content.
+...then rename `links.dist.json` to `links.json`, and customize it to your heart's content.
 
 Start a first build, then spawn webserver for live coding (browser-sync):
 ```
-gulp
+npm run dev
 ```
 
 This will dump compiled/processed files in a ./build directory, which will then be served by browser-sync, with files being watched for changes. When changes occur, browser-sync will automagically refresh the browser.
@@ -91,10 +118,10 @@ This will dump compiled/processed files in a ./build directory, which will then 
 
 ### Releasing
 
-Run ```gulp``` with a parameter of ```release``` to clean the ```./build``` directory, recompile all sources fresh, exclude unneeded files, and write a .zip file to ```dist/```:
+Cleans the `./build` directory, recompiles all sources fresh, excluding unneeded files, and writes a .zip file to `dist/`:
 
 ```
-gulp release
+npm run release
 ```
 ---
 ...and that's about it! I hope you enjoy this little nostalgic throwback to the terminals of old.
