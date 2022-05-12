@@ -70,12 +70,15 @@ Before working with this file, you'll need to rename the example ```links.dist.j
  - Apache, nginx, IIS, etc.
  - [Download the latest release](https://github.com/scar45/retro-crt-startpage/releases)
  - Extract the .zip and rename `links.dist.json` to `links.json`
+ - Move `links.json` to the `data/` folder
  - Edit `links.json` to contain the links you desire
  - Upload entire local directory to your hosted directory
 
-### Included Node.js http-server
+### Included [fastify](https://www.fastify.io/) HTTP server
 _As of the current time of writing Node.js v10 is required (you can use [NVM](https://github.com/nvm-sh/nvm) to switch Node versions on-the-fly)_
- - Clone the repository, or [download the latest archive](https://github.com/scar45/retro-crt-startpage/archive/master.zip), and rename `links.dist.json` to `links.json`
+ - Clone the repository, or [download the latest archive](https://github.com/scar45/retro-crt-startpage/archive/master.zip)
+ - Rename `links.dist.json` to `links.json`
+ - Move `links.json` to the `build/data/` folder
  - Edit `links.json` to contain the links you desire
  - Run:
    - `npm install`

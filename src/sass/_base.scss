@@ -265,6 +265,11 @@ ul.shortcuts {
     white-space: pre-wrap;
     word-break: break-all;
 
+    &.no-data {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+
     a {
       display: inline-block;
     }
@@ -382,8 +387,13 @@ blockquote {
 
     &:hover span.link-name {
       color: $color-black;
-      text-shadow: 1px 1px 0 #000;
+      text-shadow: 1px 1px 0 $color-grey-darker;
     }
+  }
+
+  .no-data a:hover {
+    color: $color-black;
+    text-shadow: 1px 1px 0 $color-grey-darker;
   }
 
   a:not(.bookmark)::before, a.bookmark span.link-name::before {
