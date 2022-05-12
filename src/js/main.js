@@ -70,7 +70,7 @@ function sortAlpha(a,b){
 // Read the 'links.json' file for data to display
 function loadJSON() {
     //console.log("Loading JSON object of startpage links...")
-    $.getJSON('links.json', function(links) {
+    $.getJSON('/data/links.json', function(links) {
         $(".shortcuts").html("");
         $.each(links.link, function(i,data){
             if (data.invert == true) {

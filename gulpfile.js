@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     del = require('del'),
 	minifyHTML = require("gulp-minify-html"),
     minifyCSS = require('gulp-minify-css'),
+    package = require('./package.json'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -41,7 +42,9 @@ var config = {
             src: ["src/.htaccess", "src/*.png", "src/*.xml", "src/*.txt", "src/*.mp3"],
             dest: "build",
             fontSrc: "src/fonts/**/*",
-            fontDest: "build/fonts"
+            fontDest: "build/fonts",
+            dataSrc: "src/data/**/*",
+            dataDest: "build/data"
         }
     }
 };
@@ -56,7 +59,7 @@ gulp.task('cleanpostrelease', function() {
 
 gulp.task('ziprelease', function() {
     return gulp.src(['./build/**/*','!./build/links.json'])
-        .pipe(zip('retro-crt-startpage-release.zip'))
+        .pipe(zip('retro-crt-startpage-v' + package.version + '-release.zip'))
         .pipe(gulp.dest('dist/'));
 });
 
@@ -97,6 +100,8 @@ gulp.task("untouched", function(){
         .pipe(gulp.dest(config.paths.untouched.dest));
     gulp.src(config.paths.untouched.fontSrc)
         .pipe(gulp.dest(config.paths.untouched.fontDest));
+    gulp.src(config.paths.untouched.dataSrc)
+        .pipe(gulp.dest(config.paths.untouched.dataDest));
 	gulp.src(config.paths.images.src)
 		.pipe(gulp.dest(config.paths.images.dest));
     gulp.src(config.paths.json.src)
