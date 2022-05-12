@@ -1,13 +1,21 @@
 {
   "name": "retro-crt-startpage",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Throwback retro CRT style layout for a personalized startpage.",
   "author": "George Merlocco",
   "contributors": [
     "George Merlocco <george@merloc.co>"
   ],
+  "__NOTE__": "HOST should be '0.0.0.0' if running via Docker, and feel free to change the numeric PORT value here as well",
+  "host": "0.0.0.0",
+  "port": 4050,
   "scripts": {
-    "start": "gulp"
+    "dev": "gulp",
+    "clean": "gulp clean",
+    "release": "gulp release",
+    "docker-build": "gulp release && docker build . -t retro-crt-startpage:$npm_package_version && docker build . -t retro-crt-startpage:latest",
+    "docker": "npm run docker-build && docker run -d -p $npm_package_port:$npm_package_port -v retro-crt-startpage_data:/usr/src/app/build/data --name retro-crt-startpage retro-crt-startpage:latest",
+    "start": "npm run release && node server.js"
   },
   "private": true,
   "license": "MIT",
@@ -34,5 +42,9 @@
     "http-server": "^0.9.0",
     "run-sequence": "^1.2.2",
     "vanilla-modal": "^1.6.4"
+  },
+  "dependencies": {
+    "@fastify/static": "^5.0.2",
+    "fastify": "^3.29.0"
   }
 }

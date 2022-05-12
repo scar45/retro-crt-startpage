@@ -1,0 +1,10 @@
+.dockerignore
+node_modules
+npm-debug.log
+Dockerfile
+.git
+.gitignore
+.npmrc
+/src
+/dist
+links.json
