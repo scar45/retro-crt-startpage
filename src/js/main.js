@@ -77,7 +77,7 @@ function loadJSON() {
                 $(".shortcuts").append('' +
                     '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
                     '<a class="bookmark" href="'+data.url+'" target="_blank">' +
-                    '<img class="retro invert" src="images/icons/'+data.icon+'"/>' +
+                    '<img class="retro invert" src="/data/icons/'+data.icon+'"/>' +
                     '<span class="link-name">'+data.name+'</span>' +
                     '<br><span class="link-url">'+data.url+'</span>' +
                     '<br><span class="tags"></span><br>' +
@@ -87,7 +87,7 @@ function loadJSON() {
                 $(".shortcuts").append('' +
                     '<li class="tagged-item" data-item-tags="'+data.tags+'">' +
                     '<a class="bookmark" href="'+data.url+'" target="_blank">' +
-                    '<img class="retro" src="images/icons/'+data.icon+'"/>' +
+                    '<img class="retro" src="/data/icons/'+data.icon+'"/>' +
                     '<span class="link-name">'+data.name+'</span>' +
                     '<br><span class="link-url">'+data.url+'</span>' +
                     '<br><span class="tags"></span><br>' +
