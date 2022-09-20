@@ -187,9 +187,9 @@ function readPrefs() {
         cookieFlicker=readCookie('flicker'),
         cookieGreenTheme=readCookie('greenTheme');
 
-    if (cookiePower == 0) { powerOff() } else { powerOn() }
-    if (cookieFlicker == 1) { scanlinesOn() } else { scanlinesOff() }
-    if (cookieGreenTheme == 0) { amberTheme() } else { greenTheme() }
+    if (cookiePower == null || cookiePower == 1) { powerOn() } else { powerOff() }
+    if (cookieFlicker == null || cookieFlicker == 1) { scanlinesOn() } else { scanlinesOff() }
+    if (cookieGreenTheme == null || cookieGreenTheme == 0) { amberTheme() } else { greenTheme() }
 
     console.log("cookiePower=="+cookiePower+" /// cookieFlicker=="+cookieFlicker+" /// cookieGreenTheme=="+cookieGreenTheme);
 }
