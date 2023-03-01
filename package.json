@@ -31,7 +31,7 @@
     "gulp-sourcemaps": "^2.4.1",
     "gulp-strip-css-comments": "^1.2.0",
     "gulp-zip": "^4.0.0",
-    "http-server": "^0.9.0",
+    "http-server": "^14.1.1",
     "run-sequence": "^1.2.2",
     "vanilla-modal": "^1.6.4"
   }
